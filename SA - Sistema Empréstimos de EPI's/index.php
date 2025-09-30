@@ -1,86 +1,95 @@
-<?php
-    // Controle de Sessão
-    session_start();
-    if(isset($_SESSION['logado'])) {
-        header('location: sistema.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - EPIg Seguros</title>
+    
     <link href="assets/css/index.css" rel="stylesheet">
-
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+<body>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <main class="form-signin w-100 m-auto">
-        <form onsubmit="return false">
-            <img class="mb-4" src="assets/img/EPIG_LOGO.png">
-            <h1 class="h3 mb-3 fw-normal text-center">Acesso ao Sistema</h1>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="txt-usuario">
-                <label for="txt-usuario">Usuário</label>
-            </div>
-            <div class="form-floating input-group mb-3">
-                <input type="password" class="form-control" id="txt-senha">
-                <label for="txt-senha">Senha</label>
-                <button class="btn btn-outline-primary" type="button" id="btn-password" onclick="mostrarSenha()"><i class="bi bi-eye-fill"></i></button> 
-            </div>
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="true" id="check-lembrar">
-                <label class="form-check-label" for="check-lembrar">Manter-me conectado</label>
-            </div>
-            <button class="btn btn-primary w-100 py-2" onclick="entrar()">Entrar</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
-        </form>
-        </script>
-    </main>
+    <div class="login-container">
+        <div class="logo-container text-center">
+            <img src="assets/img/EPIG_LOGO.png" alt="Logo EPigSeguros" class="logo">
+            <h1 class="h3 fw-bold mt-3">
+            <span style="color: #f29021;">EPig</span><span style="color: #36974d;">Seguros</span>
+            </h1>
+            <p class="text-secondary">Sistema de Gestão de Equipamentos de Proteção Individual</p>
+        </div>
 
-    <!-- JQuery -->
-    <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        <main class="login-card">
+            <form onsubmit="return false;">
+                <div class="text-center mb-4">
+                    <h2 class="h4 mb-1 fw-bold">Acesso ao Sistema</h2>
+                    <p class="text-secondary small">Digite suas credenciais para acessar o sistema</p>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="txt-usuario" class="form-label">Nome de usuário</label>
+                    <input type="text" class="form-control" id="txt-usuario" placeholder="Digite seu usuário">
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="txt-senha" class="form-label">Senha</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control" id="txt-senha" placeholder="Digite sua senha">
+                        <button type="button" id="btn-password" onclick="mostrarSenha()">
+                            <i class="bi bi-eye-fill"></i>
+                        </button>
+                    </div>
+                </div>
 
-    <!-- JavaScript -->
-        <script>
-        // Função para mostrar/esconder a senha
+                <div class="form-check text-start mb-3">
+                    <input class="form-check-input" type="checkbox" value="true" id="check-lembrar">
+                    <label class="form-check-label" for="check-lembrar">Lembrar de mim</label>
+                </div>
+                
+                <button class="btn btn-dark w-100 py-2" onclick="entrar()">Entrar</button>
+
+            </form>
+        </main>
+
+        <footer class="footer mt-4">
+            <p class="text-body-secondary">&copy; 2024 EPigSeguros - Sistema de Gestão de Segurança</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
         function mostrarSenha() {
-            var inputSenha  = document.getElementById('txt-senha');
-            var botao       = document.getElementById('btn-password');
+            var inputSenha = document.getElementById('txt-senha');
+            var botao = document.getElementById('btn-password');
+            var icone = botao.querySelector('i');
             if (inputSenha.type === "password") {
                 inputSenha.type = "text";
-                botao.innerHTML = "<i class='bi bi-eye-slash-fill'></i>";
+                icone.classList.remove('bi-eye-fill');
+                icone.classList.add('bi-eye-slash-fill');
             } else {
                 inputSenha.type = "password";
-                botao.innerHTML = "<i class='bi bi-eye-fill'></i>";
+                icone.classList.remove('bi-eye-slash-fill');
+                icone.classList.add('bi-eye-fill');
             }
         }
 
-        // Função para entrar no sistema
         function entrar() {
             var usuario = document.getElementById('txt-usuario').value;
-            var senha   = document.getElementById('txt-senha').value;
-            var lembrar = document.getElementById('check-lembrar').value;
-
-            // AJAX
+            var senha = document.getElementById('txt-senha').value;
+            var lembrar = document.getElementById('check-lembrar').checked; 
             $.ajax({
                 type: 'post',
                 url: 'src/usuario/login.php',
                 dataType: 'json',
                 data: {
-                    'usuario' : usuario,
-                    'senha'   : senha,
-                    'lembrar' : lembrar
+                    'usuario': usuario,
+                    'senha': senha,
+                    'lembrar': lembrar
                 },
                 success: function(retorno) {
                     if (retorno.status === "sucesso") {
@@ -89,13 +98,12 @@
                         alert(retorno.msg);
                     }
                 },
-                error: function(erro) {
-                    alert('Ocorreu um erro na requisição: ' + erro);
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Erro na requisição: ", textStatus, errorThrown);
+                    alert('Ocorreu um erro na requisição. Verifique o console para mais detalhes.');
                 }
             });
         }
-        </script>
-
+    </script>
 </body>
-
 </html>
