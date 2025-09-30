@@ -56,5 +56,3 @@
         ];
         echo json_encode($resposta);
     }
-
-?>

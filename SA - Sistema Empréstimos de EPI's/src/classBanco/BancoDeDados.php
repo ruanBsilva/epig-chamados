@@ -4,7 +4,7 @@
         private $conexao;
         private $dbHost = 'localhost';
         private $dbPorta = '3307';
-        private $dbName = 'db_exemplo';
+        private $dbName = 'epig_seguros';
         private $dbUser = 'root';
         private $dbPassword = 'masterkey';
 
