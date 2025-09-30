@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - EXEMPLO</title>
+    <title>Login - EPIg Seguros</title>
     <link href="assets/css/index.css" rel="stylesheet">
 
     <!-- bootstrap -->
@@ -25,8 +25,8 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
         <form onsubmit="return false">
-            <img class="mb-4" src="assets/img/logo.png">
-            <h1 class="h3 mb-3 fw-normal">Faça o login</h1>
+            <img class="mb-4" src="assets/img/EPIG_LOGO.png">
+            <h1 class="h3 mb-3 fw-normal text-center">Acesso ao Sistema</h1>
             <div class="form-floating">
                 <input type="text" class="form-control" id="txt-usuario">
                 <label for="txt-usuario">Usuário</label>
