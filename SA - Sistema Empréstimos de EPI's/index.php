@@ -1,35 +1,25 @@
-<?php
-    // Controle de Sessão
-    session_start();
-    if(isset($_SESSION['logado'])) {
-        header('location: sistema.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - EPIg Seguros</title>
+    
     <link href="assets/css/index.css" rel="stylesheet">
-
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
         <form onsubmit="return false">
             <img class="mb-4" src="assets/img/EPIG_LOGO.png">
-            <h1 class="h3 mb-3 fw-normal text-center">Acesso ao Sistemaaa</h1>
+            <h1 class="h3 mb-3 fw-normal text-center">Acesso ao Sistema</h1>
             <div class="form-floating">
                 <input type="text" class="form-control" id="txt-usuario">
-                <label for="txt-usuario">Usuáriiio</label>
+                <label for="txt-usuario">Usuário</label>
             </div>
             <div class="form-floating input-group mb-3">
                 <input type="password" class="form-control" id="txt-senha">
@@ -46,41 +36,42 @@
         </script>
     </main>
 
-    <!-- JQuery -->
-    <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        <footer class="footer mt-4">
+            <p class="text-body-secondary">&copy; 2024 EPigSeguros - Sistema de Gestão de Segurança</p>
+        </footer>
+    </div>
 
-    <!-- JavaScript -->
-        <script>
-        // Função para mostrar/esconder a senha
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
         function mostrarSenha() {
-            var inputSenha  = document.getElementById('txt-senha');
-            var botao       = document.getElementById('btn-password');
+            var inputSenha = document.getElementById('txt-senha');
+            var botao = document.getElementById('btn-password');
+            var icone = botao.querySelector('i');
             if (inputSenha.type === "password") {
                 inputSenha.type = "text";
-                botao.innerHTML = "<i class='bi bi-eye-slash-fill'></i>";
+                icone.classList.remove('bi-eye-fill');
+                icone.classList.add('bi-eye-slash-fill');
             } else {
                 inputSenha.type = "password";
-                botao.innerHTML = "<i class='bi bi-eye-fill'></i>";
+                icone.classList.remove('bi-eye-slash-fill');
+                icone.classList.add('bi-eye-fill');
             }
         }
 
-        // Função para entrar no sistema
         function entrar() {
             var usuario = document.getElementById('txt-usuario').value;
-            var senha   = document.getElementById('txt-senha').value;
-            var lembrar = document.getElementById('check-lembrar').value;
-
-            // AJAX
+            var senha = document.getElementById('txt-senha').value;
+            var lembrar = document.getElementById('check-lembrar').checked; 
             $.ajax({
                 type: 'post',
                 url: 'src/usuario/login.php',
                 dataType: 'json',
                 data: {
-                    'usuario' : usuario,
-                    'senha'   : senha,
-                    'lembrar' : lembrar
+                    'usuario': usuario,
+                    'senha': senha,
+                    'lembrar': lembrar
                 },
                 success: function(retorno) {
                     if (retorno.status === "sucesso") {
@@ -89,13 +80,12 @@
                         alert(retorno.msg);
                     }
                 },
-                error: function(erro) {
-                    alert('Ocorreu um erro na requisição: ' + erro);
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Erro na requisição: ", textStatus, errorThrown);
+                    alert('Ocorreu um erro na requisição. Verifique o console para mais detalhes.');
                 }
             });
         }
-        </script>
-
+    </script>
 </body>
-
 </html>
