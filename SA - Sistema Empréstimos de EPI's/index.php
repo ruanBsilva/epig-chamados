@@ -11,30 +11,49 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+<body>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <main class="form-signin w-100 m-auto">
-        <form onsubmit="return false">
-            <img class="mb-4" src="assets/img/EPIG_LOGO.png">
-            <h1 class="h3 mb-3 fw-normal text-center">Acesso ao Sistema</h1>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="txt-usuario">
-                <label for="txt-usuario">Usuário</label>
-            </div>
-            <div class="form-floating input-group mb-3">
-                <input type="password" class="form-control" id="txt-senha">
-                <label for="txt-senha">Senha</label>
-                <button class="btn btn-outline-primary" type="button" id="btn-password" onclick="mostrarSenha()"><i class="bi bi-eye-fill"></i></button> 
-            </div>
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="true" id="check-lembrar">
-                <label class="form-check-label" for="check-lembrar">Manter-me conectado</label>
-            </div>
-            <button class="btn btn-primary w-100 py-2" onclick="entrar()">Entrar</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
-        </form>
-        </script>
-    </main>
+    <div class="login-container">
+        <div class="logo-container text-center">
+            <img src="assets/img/EPIG_LOGO.png" alt="Logo EPigSeguros" class="logo">
+            <h1 class="h3 fw-bold mt-3">
+                <span style="color: #ef922a;">EPig</span><span style="color: #39a04d;">Seguros</span>
+            </h1>
+
+            <p class="text-secondary">Sistema de Gestão de Equipamentos de Proteção Individual</p>
+        </div>
+
+        <main class="login-card">
+            <form onsubmit="return false;">
+                <div class="text-center mb-4">
+                    <h2 class="h4 mb-1 fw-bold">Acesso ao Sistema</h2>
+                    <p class="text-secondary small">Digite suas credenciais para acessar o sistema</p>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="txt-usuario" class="form-label">Nome de usuário</label>
+                    <input type="text" class="form-control" id="txt-usuario" placeholder="Digite seu usuário">
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="txt-senha" class="form-label">Senha</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control" id="txt-senha" placeholder="Digite sua senha">
+                        <button type="button" id="btn-password" onclick="mostrarSenha()">
+                            <i class="bi bi-eye-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-check text-start mb-3">
+                    <input class="form-check-input" type="checkbox" value="true" id="check-lembrar">
+                    <label class="form-check-label" for="check-lembrar">Lembrar de mim</label>
+                </div>
+                
+                <button class="btn btn-dark w-100 py-2" onclick="entrar()">Entrar</button>
+
+            </form>
+        </main>
 
         <footer class="footer mt-4">
             <p class="text-body-secondary">&copy; 2024 EPigSeguros - Sistema de Gestão de Segurança</p>
@@ -45,10 +64,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Função para mostrar/esconder a senha
         function mostrarSenha() {
             var inputSenha = document.getElementById('txt-senha');
             var botao = document.getElementById('btn-password');
-            var icone = botao.querySelector('i');
+            var icone = botao.querySelector('i'); // Seleciona o ícone dentro do botão
             if (inputSenha.type === "password") {
                 inputSenha.type = "text";
                 icone.classList.remove('bi-eye-fill');
@@ -60,10 +80,13 @@
             }
         }
 
+        // Função para entrar no sistema (sua lógica AJAX permanece a mesma)
         function entrar() {
             var usuario = document.getElementById('txt-usuario').value;
             var senha = document.getElementById('txt-senha').value;
-            var lembrar = document.getElementById('check-lembrar').checked; 
+            var lembrar = document.getElementById('check-lembrar').checked; // Usar .checked para checkboxes
+
+            // AJAX
             $.ajax({
                 type: 'post',
                 url: 'src/usuario/login.php',
