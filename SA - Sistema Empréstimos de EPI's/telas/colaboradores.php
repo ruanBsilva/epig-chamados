@@ -3,10 +3,10 @@
 ?>
 
 <div>
-    <h2>Cadastro de Clientes</h2>
+    <h2>Cadastro de Colaborador</h2>
 </div>
 
-<form id="form-cliente" onsubmit="return false">
+<form id="form-colaborador" onsubmit="return false">
     <div>
         <label for="txt-id-cliente">ID</label>
         <input type="text" id="txt-id-cliente" value="NOVO" readonly required>
@@ -28,32 +28,33 @@
         <input type="date" id="data-nasc-cliente" required>
     </div>
 
-    <button onclick="salvarClientes()">Salvar</button>
+    <button onclick="salvarColaboradores()">Salvar</button>
     <button>Cancelar</button>
 
 </form>
- 
-    <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+
+
 
 <script>
-    function salvarClientes(){
-        var id = document.getElementById('txt-id-cliente').value;
-        var nome = document.getElementById('txt-nome-cliente').value;
-        var email = document.getElementById('txt-email-cliente').value;
-        var telefone = document.getElementById('txt-telefone-cliente').value;
-        var nascimento = document.getElementById('data-nasc-cliente').value;
-        var destino = id === 'NOVO' ? 'src/cliente/inserir.php' : 'src/cliente/atualizar.php';
+    // Função que irá SALVAR os clientes. Irá puxar as info do formulário e enviar por AJAX para o PHP
+    function salvarColaboradores(){
+        var id          = document.getElementById('txt-id-cliente').value;
+        var nome        = document.getElementById('txt-nome-cliente').value;
+        var email       = document.getElementById('txt-email-cliente').value;
+        var telefone    = document.getElementById('txt-telefone-cliente').value;
+        var nascimento  = document.getElementById('data-nasc-cliente').value;
+        var destino     = id === 'NOVO' ? 'src/colaborador/inserir.php' : 'src/colaborador/atualizar.php';
         
         $.ajax({
             type: 'post',
             url: destino,
             dataType: 'json',
             data: {
-                'id' : id,
-                'nome' : nome,
-                'email' : email,
-                'telefone' : telefone,
-                'nascimento' : nascimento,
+                'id'            : id,
+                'nome'          : nome,
+                'email'         : email,
+                'telefone'      : telefone,
+                'nascimento'    : nascimento,
             },
             success: function(retorno){
                 if (retorno.status === 'sucesso'){

@@ -1,7 +1,8 @@
 /* Importando uma fonte mais agradável (opcional, mas recomendado) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -10,8 +11,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px 0;
-    background-color: #f8f9fa; /* Cor de fundo cinza claro */
-    font-family: 'Poppins', sans-serif; /* Fonte mais moderna */
+    background-color: #f8f9fa;
+    /* Cor de fundo cinza claro */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte mais moderna */
     color: #495057;
 }
 
@@ -26,7 +29,8 @@ body {
 }
 
 .logo {
-    width: 100px; /* Tamanho do logo */
+    width: 100px;
+    /* Tamanho do logo */
     height: auto;
     margin-bottom: 1rem;
 }
@@ -37,9 +41,11 @@ body {
 
 .login-card {
     background-color: #ffffff;
-    border-radius: 15px; /* Bordas mais arredondadas */
+    border-radius: 15px;
+    /* Bordas mais arredondadas */
     padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Sombra suave */
     width: 100%;
 }
 
@@ -72,7 +78,8 @@ body {
     position: absolute;
     top: 50%;
     right: 15px;
-    transform: translateY(-50%); /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
     background: transparent;
     border: none;
     cursor: pointer;

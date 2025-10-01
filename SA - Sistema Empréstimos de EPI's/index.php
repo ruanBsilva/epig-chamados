@@ -56,7 +56,7 @@
         </main>
 
         <footer class="footer mt-4">
-            <p class="text-body-secondary">&copy; 2024 EPigSeguros - Sistema de Gestão de Segurança</p>
+            <p class="text-body-secondary">&copy; 2025 EPigSeguros - Sistema de Gestão de Segurança</p>
         </footer>
     </div>
 
