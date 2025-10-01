@@ -41,7 +41,11 @@ session_start();
                 include 'telas/clientes.php';
                 break;
             case 'equipamentos':
-                include 'telas/equipamentos';
+                include 'telas/equipamentos.php';
+                break;
+            case 'usuarios':
+                include 'telas/usuarios.php';
+                break;
             default:
                 echo "<h1>Bem vindo {$_SESSION['nome']}!</h1>";
                 break;
