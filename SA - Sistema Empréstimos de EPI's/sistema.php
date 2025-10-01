@@ -35,8 +35,8 @@ session_start();
     </div>
     <div>
         <?php
-         $telas = isset($_GET['telas']) ? $_GET['telas'] : null;
-         switch ($telas) {
+        $telas = isset($_GET['telas']) ? $_GET['telas'] : null;
+        switch ($telas) {
             case 'clientes':
                 include 'telas/clientes.php';
                 break;
@@ -45,7 +45,7 @@ session_start();
             default:
                 echo "<h1>Bem vindo {$_SESSION['nome']}!</h1>";
                 break;
-         }
+        }
         ?>
     </div>
 </body>

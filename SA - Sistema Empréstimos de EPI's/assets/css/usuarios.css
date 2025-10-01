@@ -1,0 +1,288 @@
+/* --- Estilos Gerais --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f5f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container-gerenciamento {
+    max-width: 1200px;
+    margin: 40px auto;
+    /* Adicionei margem superior e inferior para centralizar melhor */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Header do Gerenciamento (Ajuste de Layout) --- */
+.container-gerenciamento header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.header-info {
+    /* Garante que o H1 e o P fiquem em bloco */
+    display: block;
+}
+
+.container-gerenciamento h1 {
+    font-size: 1.5em;
+    color: #1a202c;
+    margin: 0;
+}
+
+.container-gerenciamento p {
+    color: #718096;
+    font-size: 0.9em;
+    margin: 5px 0 0 0;
+    /* Ajuste a margem para separar do H1 */
+}
+
+.btn-novo-usuario {
+    background-color: #007bff;
+    /* Azul forte */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-novo-usuario:hover {
+    background-color: #0056b3;
+}
+
+/* --- Tabela --- */
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9em;
+}
+
+table thead th {
+    background-color: #f7f9fc;
+    color: #4a5568;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #edf2f7;
+    font-weight: 600;
+}
+
+table tbody tr {
+    /* Não haverá linhas por padrão, mas mantemos o estilo para futuras adições */
+    background-color: #fff;
+    border-bottom: 1px solid #edf2f7;
+    transition: background-color 0.1s;
+}
+
+table tbody tr:hover {
+    background-color: #f7f9fc;
+}
+
+table tbody td {
+    padding: 12px 15px;
+    color: #4a5568;
+    white-space: nowrap;
+    /* Impede a quebra de linha em colunas como E-mail / Login */
+}
+
+/* Estilo para E-mail / Login ficar em uma única linha se for um <td> simples */
+table tbody td small {
+    display: block;
+    /* Mantém a tag small como um bloco para a segunda linha do endereço */
+    color: #718096;
+    font-size: 0.85em;
+}
+
+/* --- Modal (Simulação CSS Pura com :target) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    /* Inicia Oculta */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Abre a modal quando o ID dela está na URL (ex: index.html#modal-novo-usuario) */
+.modal-overlay:target {
+    display: flex;
+}
+
+.modal-conteudo {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.fechar-modal {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5em;
+    line-height: 1;
+    transition: color 0.1s;
+}
+
+.fechar-modal:hover {
+    color: #c53030;
+}
+
+.modal-descricao {
+    font-size: 0.85em;
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+/* --- Estilos do Formulário dentro da Modal --- */
+.form-row {
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.form-row input[type="text"],
+.form-row input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    background-color: #f7f9fc;
+    /* Fundo cinza claro */
+}
+
+/* Estilo para a linha com 2 campos */
+.form-half-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+/* --- Radio Buttons de Perfil --- */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    padding-top: 5px;
+}
+
+.radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.radio-group label {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e2e8f0;
+    /* Fundo padrão */
+    color: #4a5568;
+    font-weight: normal;
+    transition: background-color 0.1s, color 0.1s;
+    margin-bottom: 0;
+    /* Anula o margin-bottom do label geral */
+}
+
+/* Estilo quando o radio button está selecionado */
+.radio-group input[type="radio"]:checked+label {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    border-color: #007bff;
+}
+
+.radio-group label:hover {
+    background-color: #c3d9ec;
+}
+
+/* --- Footer e Botões da Modal --- */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 25px;
+}
+
+.btn-cancelar {
+    background: none;
+    color: #4a5568;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: background-color 0.1s;
+}
+
+.btn-cancelar:hover {
+    background-color: #edf2f7;
+}
+
+.btn-criar {
+    background-color: #1a202c;
+    /* Fundo preto/escuro do exemplo */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-criar:hover {
+    background-color: #000;
+}
