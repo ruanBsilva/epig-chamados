@@ -82,7 +82,7 @@ function salvarUsuario() {
     var nome = document.getElementById('nome-completo').value;
     var usuario = document.getElementById('nome-usuario').value;
     var senha = document.getElementById('senha').value;
-    var tipo = document.getElementById('perfil-adm').checked ? 'A' : document.getElementById('perfil-operador').checked ? 'O' : 'V';
+    var tipo = document.getElementById('perfil-adm').checked ? 'a' : document.getElementById('perfil-operador').checked ? 'o' : 'v';
 
     // AJAX
     $.ajax({
