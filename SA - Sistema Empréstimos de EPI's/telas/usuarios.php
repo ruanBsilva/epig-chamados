@@ -69,7 +69,7 @@
                             <th scope="col" style="width: 15%; text-align: center;">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-usuario">
                         <!-- PUXARÁ POR AJAX -->
                         <!-- <tr>
                             <td colspan="4" class="text-center p-4 text-muted">
@@ -98,36 +98,37 @@
 
                     <form id="form-usuario" onsubmit="return false">
                         <div class="row mb-3">
+                            <input type="hidden" id="txt-id-usuario" value="NOVO" readonly>
                             <div class="col-md-6 mb-3">
-                                <label for="nomeCompleto" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="nomeCompleto" placeholder="Nome completo do usuário" required>
+                                <label for="txt-nome" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="txt-nome" placeholder="Nome completo do usuário" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
-                                <input type="text" class="form-control" id="nomeUsuario" placeholder="nome.usuario" required>
+                                <label for="txt-usuario" class="form-label">Nome de Usuário</label>
+                                <input type="text" class="form-control" id="txt-usuario" placeholder="nome.usuario" required>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <div class="col-md-6">
-                                <label for="senhaInicial" class="form-label">Senha Inicial</label>
-                                <input type="password" class="form-control" id="senhaInicial" placeholder="Senha temporária" required>
+                                <label for="txt-senha" class="form-label">Senha Inicial</label>
+                                <input type="password" class="form-control" id="txt-senha" placeholder="Senha temporária" required>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label d-block">Perfil de Acesso</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="perfilAcesso" id="perfilAdmin" value="a" required>
-                                <label class="form-check-label" for="perfilAdmin">Administrador</label>
+                                <input class="form-check-input" type="radio" name="perfil-acesso" id="admin" value="a" required>
+                                <label class="form-check-label" for="admin">Administrador</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="perfilAcesso" id="perfilOperador" value="o">
-                                <label class="form-check-label" for="perfilOperador">Operador</label>
+                                <input class="form-check-input" type="radio" name="perfil-acesso" id="operador" value="o">
+                                <label class="form-check-label" for="operador">Operador</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="perfilAcesso" id="perfilVisualizador" value="v">
-                                <label class="form-check-label" for="perfilVisualizador">Visualizador</label>
+                                <input class="form-check-input" type="radio" name="perfil-acesso" id="visualizador" value="v">
+                                <label class="form-check-label" for="visualizador">Visualizador</label>
                             </div>
                         </div>
                     </form>
@@ -140,3 +141,76 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function() {
+        listarUsuarios();
+    }
+
+    function salvarUsuario() {
+        var id          = document.getElementById('txt-id-usuario').value;
+        var nome        = document.getElementById('txt-nome').value;
+        var usuario     = document.getElementById('txt-usuario').value;
+        var senha       = document.getElementById('txt-senha').value;
+        var tipo        = document.getElementById('admin').checked ? 'a' : document.getElementById('operador').checked ? 'o' : 'v';
+        var destino     = id === 'NOVO' ? 'src/usuario/inserir.php' : 'src/usuario/alterar.php';
+
+        $.ajax({
+            type: 'post',
+            url: destino,
+            dataType: 'json',
+            data: {
+                'nome'    : nome,
+                'usuario' : usuario,
+                'senha'   : senha,
+                'tipo'    : tipo,
+            },
+            success: function(retorno){
+                if (retorno.status === 'sucesso'){
+                    alert(retorno.msg);
+                    document.getElementById('form-usuario').reset();
+                }else{
+                    alert(retorno.msg);
+                }
+            },
+            error: function(erro){
+                alert('Ocorreu um erro na requisição' + erro);
+            },
+        });
+    }
+
+    function listarUsuarios() {
+        $.ajax({
+            type: 'post',
+            url: 'src/usuario/selecionarTodos.php',
+            dataType: 'json',
+            success: function(resposta) {
+                var tabelaUsuarios = document.getElementById('tbody-usuario');
+                tabelaUsuarios.innerHTML = ''; // limpar a tabela antes de inserir algo
+                var usuarios = resposta.dados;
+
+                usuarios.forEach(function(cliente) {
+                    var linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${cliente['nome']}</td>
+                        <td>${cliente['usuario']}</td>
+                        <td>${cliente['tipo'] == 'a' ? 'Administrador' : cliente['tipo'] == 'o' ? 'Operador' : 'Visualizador'}</td>
+                        <td align="center">
+                            <button class="btn" onclick="editarCliente(${cliente['id_cliente']})">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                            <button class="btn" onclick="deletarCliente(${cliente['id_cliente']})">
+                                <i class="text-danger bi bi-trash3-fill">
+                            </i></button>
+                        </td>
+                    `;
+
+                    tabelaUsuarios.appendChild(linha);
+                });
+            },
+            error: function(erro) {
+                alert('Ocorreu um erro na requisição: ' + erro);
+            }
+        });
+    }
+</script>
