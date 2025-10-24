@@ -93,9 +93,11 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
                         break;
                     case 'usuarios':
                         include 'telas/usuarios.php';
-                        echo "Página de Usuários em construção.";
                         break;
-                    case 'dashboard':
+                    case 'emprestimos':
+                        include 'telas/emprestimos.php';
+                        echo "Página de Empréstimos em construção.";
+                        break;
                     default:
                         echo "<h1>Bem vindo {$_SESSION['nome']}!</h1>";
                         echo "<p>Selecione uma opção no menu ao lado para começar.</p>";

@@ -4,6 +4,7 @@
     $form = [
         'nome'      =>      $_POST['nome']      ?? null,
         'usuario'   =>      $_POST['usuario']   ?? null,
+        'email'     =>      $_POST['email']     ?? null,
         'senha'     =>      $_POST['senha']     ?? null,
         'tipo'      =>      $_POST['tipo']      ?? null,
     ];
@@ -22,9 +23,10 @@
         $banco = new BancoDeDados;
 
         // Definir o Comando
-        $sql = 'INSERT INTO usuarios (usuario, senha, nome, tipo) VALUES (?, ?, ?, ?)';
+        $sql = 'INSERT INTO usuarios (usuario, email, senha, nome, tipo) VALUES (?, ?, ?, ?, ?)';
         $parametros_inserir = [
             $form['usuario'],
+            $form['email'],
             $form['senha'],
             $form['nome'],
             $form['tipo']
