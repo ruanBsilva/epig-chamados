@@ -1,0 +1,21 @@
+.usuarios-header .btn-primary {
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    
+}
+
+.containerButton{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+}
+
+.btnNovoColaborador{
+    width: 15%;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #39a04d
+}
