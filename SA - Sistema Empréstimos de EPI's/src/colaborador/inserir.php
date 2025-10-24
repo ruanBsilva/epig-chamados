@@ -5,9 +5,12 @@
     $form = [
         'id'            => $_POST['id']             ?? null,
         'nome'          => $_POST['nome']           ?? null,
+        'cpf'            => $_POST['cpf']            ?? null,
         'email'         => $_POST['email']          ?? null,
         'telefone'      => $_POST['telefone']       ?? null,
         'nascimento'    => $_POST['nascimento']     ?? null,
+        'cargo'         => $_POST['cargo']          ?? null,
+        
     ];
 
     if(in_array(null, $form)){
@@ -22,12 +25,14 @@
     try {
         $banco = new BancoDeDados;
 
-        $sql = 'INSERT INTO clientes (nome, email, telefone, nascimento) VALUES (?, ?, ?, ?)';
+        $sql = 'INSERT INTO colaboradores (nome, cpf, email, telefone, nascimento, cargo) VALUES (?, ?, ?, ?, ?, ?)';
         $parametros_inserir = [
             $form['nome'],
+            $form['cpf'],
             $form['email'],
             $form['telefone'],
-            $form['nascimento']
+            $form['nascimento'],
+            $form['cargo']
         ];
         $banco->executarComando($sql, $parametros_inserir);
         $resposta = [

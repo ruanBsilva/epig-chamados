@@ -14,6 +14,12 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
     
     <link href="assets/css/sistema.css" rel="stylesheet"> 
     <link href="assets/css/usuarios.css" rel="stylesheet"> 
+    <link href="assets/css/colaboradores.css" rel="stylesheet"> 
+
+    <script src="assets/js/colaborador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+    
 </head>
 <body>
     <div class="main-container">
@@ -107,7 +113,5 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
             </div>
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
 </body>
 </html>

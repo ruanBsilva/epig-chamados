@@ -6,66 +6,135 @@
     <h2>Cadastro de Colaborador</h2>
 </div>
 
-<form id="form-colaborador" onsubmit="return false">
-    <div>
-        <label for="txt-id-cliente">ID</label>
-        <input type="text" id="txt-id-cliente" value="NOVO" readonly required>
-    </div>
-    <div>
-        <label for="txt-nome-cliente">Nome Completo</label>
-        <input type="text" id="txt-nome-cliente" required>
-    </div>
-    <div>
-        <label for="txt-email-cliente">Email</label>
-        <input type="email" id="txt-email-cliente" required>
-    </div>
-    <div>
-        <label for="txt-telefone-cliente">Telefone</label>
-        <input type="text" id="txt-telefone-cliente" required>
-    </div>
-    <div>
-        <label for="data-nasc-cliente">Data de nascimento</label>
-        <input type="date" id="data-nasc-cliente" required>
-    </div>
+<div class="containerButton">
+    <button type="button" class="btnNovoColaborador" data-toggle="modal" data-target="#meuModal" onclick='abrirModal()'>
+    + Novo Colaborador
+</button>
+</div>
 
-    <button onclick="salvarColaboradores()">Salvar</button>
-    <button>Cancelar</button>
+<div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form-colaborador" onsubmit="return false">
+            <div>
+                <label for="txt-id-colaborador">ID</label>
+                <input type="text" id="txt-id-colaborador" value="NOVO" readonly required>
+            </div>
+            <div>
+                <label for="txt-nome-colaborador">Nome Completo</label>
+                <input type="text" id="txt-nome-colaborador" required>
+            </div>
+                        <div>
+                <label for="cpf-colaborador">CPF</label>
+                <input type="int" id="cpf-colaborador" required>
+            </div>
+            <div>
+                <label for="txt-email-colaborador">Email</label>
+                <input type="email" id="txt-email-colaborador" required>
+            </div>
+            <div>
+                <label for="txt-telefone-colaborador">Telefone</label>
+                <input type="text" id="txt-telefone-colaborador" required>
+            </div>
+            <div>
+                <label for="data-nasc-colaborador">Data de nascimento</label>
+                <input type="date" id="data-nasc-colaborador" required>
+            </div>
+            <div>
+                <label for="txt-cargo">Cargo</label>
+                <input type="text" id="txt-cargo" required>
+            </div>
 
-</form>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  onclick="fecharModal()" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarColaboradores()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<br>
 
-
-<script>
-    // Função que irá SALVAR os clientes. Irá puxar as info do formulário e enviar por AJAX para o PHP
-    function salvarColaboradores(){
-        var id          = document.getElementById('txt-id-cliente').value;
-        var nome        = document.getElementById('txt-nome-cliente').value;
-        var email       = document.getElementById('txt-email-cliente').value;
-        var telefone    = document.getElementById('txt-telefone-cliente').value;
-        var nascimento  = document.getElementById('data-nasc-cliente').value;
-        var destino     = id === 'NOVO' ? 'src/colaborador/inserir.php' : 'src/colaborador/atualizar.php';
+<div class="row row-cols-1 row-cols-md-4 g-4 mb-5 card-stats-row">
+        <div class="col">
+            <div class="card card-stat total-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h6 class="card-title text-uppercase mb-2">Total</h6>
+                        <i class="bi bi-person-fill fs-5"></i>
+                    </div>
+                    <div class="stat-value">4</div>
+                </div>
+            </div>
+        </div>
         
-        $.ajax({
-            type: 'post',
-            url: destino,
-            dataType: 'json',
-            data: {
-                'id'            : id,
-                'nome'          : nome,
-                'email'         : email,
-                'telefone'      : telefone,
-                'nascimento'    : nascimento,
-            },
-            success: function(retorno){
-                if (retorno.status === 'sucesso'){
-                    alert(retorno.msg);
-                }else{
-                    alert(retorno.msg);
-                }
-            },
-            error: function(erro){
-                alert('Ocorreu um erro na requisição' + erro);
-            },
-        });
-    }
-</script>
+        <div class="col">
+            <div class="card card-stat admin-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h6 class="card-title text-uppercase mb-2">Ativos</h6>
+                        <i class="bi bi-person-fill-gear fs-5"></i>
+                    </div>
+                    <div class="stat-value">1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-stat operador-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h6 class="card-title text-uppercase mb-2">Afastados</h6>
+                        <i class="bi bi-person-fill-x fs-5"></i>
+                    </div>
+                    <div class="stat-value">2</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-stat visualizador-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h6 class="card-title text-uppercase mb-2">Com EPIs</h6>
+                        <i class="bi bi-person-fill-check fs-5"></i>
+                    </div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="card shadow-sm table-card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0 user-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Colaborador</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">EPIs Ativos</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" style="width: 15%; text-align: center;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-Colaborador">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
