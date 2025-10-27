@@ -25,11 +25,12 @@ body {
     color: var(--text-color);
     margin: 0;
     font-size: 14px;
+    overflow: hidden;
 }
 
 .main-container {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 /* ======================= MENU LATERAL (SIDEBAR) ======================= */
@@ -233,6 +234,7 @@ body {
 .main-content {
     flex-grow: 1;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .main-header {
