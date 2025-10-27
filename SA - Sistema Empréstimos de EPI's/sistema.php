@@ -1,6 +1,6 @@
 <?php
-session_start();
-$telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
+    session_start();
+    $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +16,10 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
     <link href="assets/css/usuarios.css" rel="stylesheet"> 
     <link href="assets/css/colaboradores.css" rel="stylesheet"> 
 
+    <script src="assets/js/carregarTela.js"></script>
+    <script src="assets/js/logout.js"></script>
     <script src="assets/js/colaborador.js"></script>
+    <script src="assets/js/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
     
@@ -34,26 +37,21 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <?php
-                        echo "<li class='" . ($telas === 'dashboard' ? 'active' : '') . "'>
-                                <a href='sistema.php'><i class='bi bi-grid-1x2-fill'></i> Dashboard</a>
-                            </li>";
-
-                        if($_SESSION['tipo'] === 'a'){
-                            echo "<li class='" . ($telas === 'equipamentos' ? 'active' : '') . "'>
-                                    <a href='sistema.php?telas=equipamentos'><i class='bi bi-shield-check'></i> Equipamentos</a>
-                                </li>
-                                <li class='" . ($telas === 'colaboradores' ? 'active' : '') . "'>
-                                    <a href='sistema.php?telas=colaboradores'><i class='bi bi-people-fill'></i> Colaboradores</a>
-                                </li>
-                                <li class='" . ($telas === 'usuarios' ? 'active' : '') . "'>
-                                    <a href='sistema.php?telas=usuarios'><i class='bi bi-person-gear'></i> Usuários</a>
-                                </li>
-                                <li class='" . ($telas === 'emprestimos' ? 'active' : '') . "'>
-                                    <a href='sistema.php?telas=emprestimos'><i class='bi bi-arrow-left-right'></i> Empréstimos</a>
-                                </li>";
-                        }
-                    ?>
+                    <li class="nav-item">
+                        <a><i class='bi bi-grid-1x2-fill'></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link d-flex align-items-center gap-2 bi bi-shield-check" onclick="carregarTela('equipamentos')">Equipamentos</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link d-flex align-items-center gap-2 bi bi-people-fill" onclick="carregarTela('colaboradores')">Colaboradores</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link d-flex align-items-center gap-2 bi bi-person-gear" onclick="carregarTela('usuarios')">Usuários</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link d-flex align-items-center gap-2 bi bi-arrow-left-right" onclick="carregarTela('emprestimos')">Empréstimos</button>
+                    </li>
                 </ul>
             </nav>
             <div class="sidebar-footer">
@@ -75,42 +73,14 @@ $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
                         </span>
                     </div>
                 </div>
-                <a href="/logout.php" class="logout-link">
+                <button onclick="logout()" class="logout-link">
                     <i class="bi bi-box-arrow-right"></i> Sair do Sistema
-                </a>
+                </button>
             </div>
         </aside>
 
-        <main class="main-content">
-            <header class="main-header">
-                <div class="header-title">
-                    <h2><?php echo ucfirst($telas); ?></h2> 
-                </div>
-                </header>
-
-            <div class="content-area">
-                <?php
-                switch ($telas) {
-                    case 'colaboradores':
-                        include 'telas/colaboradores.php';
-                        break;
-                    case 'equipamentos':
-                        echo "Página de Equipamentos em construção.";
-                        break;
-                    case 'usuarios':
-                        include 'telas/usuarios.php';
-                        break;
-                    case 'emprestimos':
-                        include 'telas/emprestimos.php';
-                        echo "Página de Empréstimos em construção.";
-                        break;
-                    default:
-                        echo "<h1>Bem vindo {$_SESSION['nome']}!</h1>";
-                        echo "<p>Selecione uma opção no menu ao lado para começar.</p>";
-                        break;
-                }
-                ?>
-            </div>
+        <main id="main" class="main-content">
+            <!-- Aqui irá puxar toooodo o conteúdo das telas, usando a função JS carregarTela -->
         </main>
     </div>
 </body>

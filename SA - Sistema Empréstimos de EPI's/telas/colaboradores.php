@@ -1,6 +1,3 @@
-<?php
-    require 'src/classBanco/BancoDeDados.php';
-?>
 
 <div>
     <h2>Cadastro de Colaborador</h2>

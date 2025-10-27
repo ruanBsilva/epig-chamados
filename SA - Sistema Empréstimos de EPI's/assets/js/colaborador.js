@@ -1,66 +1,68 @@
+function inicializarColaboradores() {
+    listarColaborador()
+}
+// Função que irá SALVAR os clientes. Irá puxar as info do formulário e enviar por AJAX para o PHP
+function salvarColaboradores() {
+    var id = document.getElementById('txt-id-colaborador').value;
+    var nome = document.getElementById('txt-nome-colaborador').value;
+    var cpf = document.getElementById('cpf-colaborador').value;
+    var email = document.getElementById('txt-email-colaborador').value;
+    var telefone = document.getElementById('txt-telefone-colaborador').value;
+    var nascimento = document.getElementById('data-nasc-colaborador').value;
+    var cargo = document.getElementById('txt-cargo').value;
+    var destino = id === 'NOVO' ? 'src/colaborador/inserir.php' : 'src/colaborador/atualizar.php';
 
- // Função que irá SALVAR os clientes. Irá puxar as info do formulário e enviar por AJAX para o PHP
-    function salvarColaboradores(){
-        var id          = document.getElementById('txt-id-colaborador').value;
-        var nome        = document.getElementById('txt-nome-colaborador').value;
-        var cpf        = document.getElementById('cpf-colaborador').value;
-        var email       = document.getElementById('txt-email-colaborador').value;
-        var telefone    = document.getElementById('txt-telefone-colaborador').value;
-        var nascimento  = document.getElementById('data-nasc-colaborador').value;
-        var cargo  = document.getElementById('txt-cargo').value;
-        var destino     = id === 'NOVO' ? 'src/colaborador/inserir.php' : 'src/colaborador/atualizar.php';
-        
-        $.ajax({
-            type: 'post',
-            url: destino,
-            dataType: 'json',
-            data: {
-                'id'            : id,
-                'cpf'           : cpf,
-                'nome'          : nome,
-                'email'         : email,
-                'telefone'      : telefone,
-                'nascimento'    : nascimento,
-                'cargo'         : cargo,
-            },
-            success: function(retorno){
-                if (retorno.status === 'sucesso'){
-                    alert(retorno.msg);
-                    $('#meuModal').modal('hide');
-                    $('#form-colaborador')[0].reset();
-                }else{
-                    alert(retorno.msg);
-                }
-            },
-            error: function(erro){
-                alert('Ocorreu um erro na requisição' + erro);
-            },
-        });
-    }
+    $.ajax({
+        type: 'post',
+        url: destino,
+        dataType: 'json',
+        data: {
+            'id': id,
+            'cpf': cpf,
+            'nome': nome,
+            'email': email,
+            'telefone': telefone,
+            'nascimento': nascimento,
+            'cargo': cargo,
+        },
+        success: function (retorno) {
+            if (retorno.status === 'sucesso') {
+                alert(retorno.msg);
+                $('#meuModal').modal('hide');
+                $('#form-colaborador')[0].reset();
+            } else {
+                alert(retorno.msg);
+            }
+        },
+        error: function (erro) {
+            alert('Ocorreu um erro na requisição' + erro);
+        },
+    });
+}
 
-    function abrirModal(){
-        $('#meuModal').modal('toggle')
-    }
+function abrirModal() {
+    $('#meuModal').modal('toggle')
+}
 
-    function fecharModal(){
-        $('#meuModal').modal('hide');
-        $('#form-colaborador')[0].reset();
-    }
+function fecharModal() {
+    $('#meuModal').modal('hide');
+    $('#form-colaborador')[0].reset();
+}
 
 
-function listarColaborador(){
-    $.ajax ({
+function listarColaborador() {
+    $.ajax({
         type: 'post',
         url: 'src/colaborador/selectTodos.php',
         dataType: 'json',
-        success: function(resposta){
+        success: function (resposta) {
             var tabelaColaboradores = document.getElementById('tbody-Colaborador');
             tabelaColaboradores.innerHTML = '';
             var colaboradores = resposta.dados;
-            
+
             console.log("Resposta do servidor:", resposta);
 
-            colaboradores.forEach(function(colaborador){
+            colaboradores.forEach(function (colaborador) {
                 var linha = document.createElement('tr');
                 linha.innerHTML = `
                     <td>${colaborador['id_colaborador']}</td>
@@ -76,15 +78,15 @@ function listarColaborador(){
                         </button>
                         <button class="btn" onclick="deletarColaborador(${colaborador['id_colaborador']})">
                             <i class="text-danger bi bi-trash3-fill">
-                         </i></button>
+                        </i></button>
                     </td>
                 `;
 
                 tabelaColaboradores.appendChild(linha);
             });
         },
-        error: function(erro){
-           alert('Ocorreu um erro na requisição: ' + erro);
+        error: function (erro) {
+            alert('Ocorreu um erro na requisição: ' + erro);
         }
     });
 }
