@@ -27,6 +27,7 @@ function salvarUsuario() {
             if (retorno.status === 'sucesso') {
                 alert(retorno.msg);
                 document.getElementById('form-usuario').reset();
+                $('#novoUsuarioModal').modal('hide');
                 listarUsuarios();
             } else {
                 alert(retorno.msg);

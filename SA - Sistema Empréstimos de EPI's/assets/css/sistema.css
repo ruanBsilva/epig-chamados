@@ -97,43 +97,73 @@ body {
     margin: 0;
 }
 
-.sidebar-nav li a {
+/* REGRA UNIFICADA PARA LINKS E BOTÕES DO MENU */
+.sidebar-nav li a.nav-link,
+.sidebar-nav li button.nav-link {
+    /* Layout (Substitui d-flex, align-items-center) */
     display: flex;
     align-items: center;
+    width: calc(100% - 30px);
+    /* Ocupa 100% (menos as margens) */
+
+    /* Espaçamento */
     padding: 12px 20px;
     margin: 5px 15px;
+
+    /* Aparência */
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+
+    /* Reset específico para <button> */
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: var(--font-family);
+    font-size: 14px;
 }
 
-.sidebar-nav li a i {
+/* Ícone do <a> (tag <i>) */
+.sidebar-nav li a.nav-link i {
     margin-right: 15px;
     font-size: 18px;
     color: var(--icon-color);
-    /* COR FIXA PARA ÍCONES */
 }
 
-/* Efeito HOVER sutil */
-.sidebar-nav li:not(.active):hover a {
+/* Ícone do <button> (classe .bi::before) */
+.sidebar-nav li button.nav-link::before {
+    margin-right: 15px;
+    /* Mesmo espaçamento do <i> */
+    font-size: 18px;
+    color: var(--icon-color);
+    position: relative;
+    top: 1px;
+    /* Ajuste fino de alinhamento */
+}
+
+/* Efeito HOVER sutil (para <a> e <button>) */
+.sidebar-nav li:not(.active):hover a.nav-link,
+.sidebar-nav li:not(.active):hover button.nav-link {
     background-color: var(--active-bg);
 }
 
 
-/* ESTADO ATIVO DO MENU */
-.sidebar-nav li.active a {
+/* ESTADO ATIVO DO MENU (para <a> e <button>) */
+/* (Seu JS precisa adicionar a classe 'active' ao <li> pai) */
+.sidebar-nav li.active a.nav-link,
+.sidebar-nav li.active button.nav-link {
     background-color: var(--active-bg);
-    /* FUNDO CINZA CLARO */
     color: var(--role-text-color);
-    /* TEXTO AZUL ESCURO */
     font-weight: 600;
 }
 
-.sidebar-nav li.active a i {
+/* Ícone ATIVO (para <i> e ::before) */
+.sidebar-nav li.active a.nav-link i,
+.sidebar-nav li.active button.nav-link::before {
     color: var(--icon-color);
-    /* ÍCONE CONTINUA O MESMO, COMO PEDIDO */
 }
 
 
@@ -186,6 +216,12 @@ body {
     font-size: 13px;
     display: flex;
     align-items: center;
+
+    /* --- ADICIONE ESTAS 4 LINHAS --- */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .sidebar-footer .logout-link i {

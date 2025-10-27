@@ -38,19 +38,19 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li class="nav-item">
-                        <a><i class='bi bi-grid-1x2-fill'></i> Dashboard</a>
+                        <a class="nav-link" onclick="carregarTela('dashboard')"><i class='bi bi-grid-1x2-fill'></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link d-flex align-items-center gap-2 bi bi-shield-check" onclick="carregarTela('equipamentos')">Equipamentos</button>
+                        <button class="nav-link bi bi-shield-check" onclick="carregarTela('equipamentos')">Equipamentos</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link d-flex align-items-center gap-2 bi bi-people-fill" onclick="carregarTela('colaboradores')">Colaboradores</button>
+                        <button class="nav-link bi bi-people-fill" onclick="carregarTela('colaboradores')">Colaboradores</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link d-flex align-items-center gap-2 bi bi-person-gear" onclick="carregarTela('usuarios')">Usuários</button>
+                        <button class="nav-link bi bi-person-gear" onclick="carregarTela('usuarios')">Usuários</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link d-flex align-items-center gap-2 bi bi-arrow-left-right" onclick="carregarTela('emprestimos')">Empréstimos</button>
+                        <button class="nav-link bi bi-arrow-left-right" onclick="carregarTela('emprestimos')">Empréstimos</button>
                     </li>
                 </ul>
             </nav>
