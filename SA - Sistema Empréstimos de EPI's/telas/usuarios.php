@@ -15,7 +15,7 @@
                         <h6 class="card-title text-uppercase mb-2">Total</h6>
                         <i class="bi bi-person-fill fs-5"></i>
                     </div>
-                    <div id="total-card" class="stat-value">4</div>
+                    <div id="total-card" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <h6 class="card-title text-uppercase mb-2">Administradores</h6>
                         <i class="bi bi-shield-fill fs-5"></i>
                     </div>
-                    <div id="qtd-adm" class="stat-value">1</div>
+                    <div id="qtd-adm" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <h6 class="card-title text-uppercase mb-2">Operadores</h6>
                         <i class="bi bi-gear-fill fs-5"></i>
                     </div>
-                    <div id="qtd-operador" class="stat-value">2</div>
+                    <div id="qtd-operador" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                         <h6 class="card-title text-uppercase mb-2">Visualizadores</h6>
                         <i class="bi bi-eye-fill fs-5"></i>
                     </div>
-                    <div id="qtd-visualizador" class="stat-value">3</div>
+                    <div id="qtd-visualizador" class="stat-value"></div>
                 </div>
             </div>
         </div>

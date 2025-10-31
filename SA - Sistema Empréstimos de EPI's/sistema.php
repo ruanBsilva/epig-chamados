@@ -17,6 +17,7 @@
     <link href="assets/css/colaboradores.css" rel="stylesheet"> 
 
     <script src="assets/js/carregarTela.js"></script>
+    <script src="assets/js/equipamento.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/colaborador.js"></script>
     <script src="assets/js/usuario.js"></script>
