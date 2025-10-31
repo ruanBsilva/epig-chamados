@@ -25,19 +25,20 @@
     try {
         $banco = new BancoDeDados;
 
-        $sql = 'INSERT INTO colaboradores (nome, cpf, email, telefone, nascimento, cargo) VALUES (?, ?, ?, ?, ?, ?)';
+        $sql = 'UPDATE colaboradores SET nome = ?, cpf = ?, email = ?, telefone = ?, nascimento = ?, cargo = ? WHERE idColaborador = ?';
         $parametros_inserir = [
             $form['nome'],
             $form['cpf'],
             $form['email'],
             $form['telefone'],
             $form['nascimento'],
-            $form['cargo']
+            $form['cargo'],
+            $form['id']
         ];
         $banco->executarComando($sql, $parametros_inserir);
         $resposta = [
             'status'    => 'sucesso',
-            'msg'       => 'Colaborador cadastrado com sucesso'
+            'msg'       => 'Colaborador atualizado com sucesso'
         ];
         echo json_encode($resposta);
 

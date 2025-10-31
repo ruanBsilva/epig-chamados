@@ -1,6 +1,5 @@
 <?php  
     class BancoDeDados {
-        // Atributos
         private $conexao;
         private $dbHost = 'localhost';
         private $dbPorta = '3307';
