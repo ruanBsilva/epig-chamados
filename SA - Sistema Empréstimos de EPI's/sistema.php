@@ -15,11 +15,10 @@
     <link href="assets/css/sistema.css" rel="stylesheet"> 
     <link href="assets/css/usuarios.css" rel="stylesheet"> 
     <link href="assets/css/colaboradores.css" rel="stylesheet"> 
-
+    <script src="assets/js/colaborador.js"></script>
     <script src="assets/js/carregarTela.js"></script>
     <script src="assets/js/equipamento.js"></script>
     <script src="assets/js/logout.js"></script>
-    <script src="assets/js/colaborador.js"></script>
     <script src="assets/js/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-3.7.1/jquery-3.7.1.min.js"></script>
