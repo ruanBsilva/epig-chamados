@@ -50,7 +50,7 @@
                         <h6 class="card-title text-uppercase mb-2">Em Uso</h6>
                         <i class="bi bi-gear-fill fs-5"></i>
                     </div>
-                    <div id="qtd-em-uso" class="stat-value"></div>
+                    <div id="qtd-em-uso" class="stat-value">0</div>
                 </div>
             </div>
         </div>
@@ -77,12 +77,13 @@
                             <th scope="col" style="width: 10%;">Id</th>
                             <th scope="col" style="width: 20%;">Nome</th>
                             <th scope="col" style="width: 20%;">Descrição</th>
-                            <th scope="col" style="width: 10%;">Imagem</th>
-                            <th scope="col" style="width: 20%;">COD. Barra</th>
-                            <th scope="col" style="width: 10%; text-align: center;">Ações</th>
+                            <th scope="col" style="width: 10%;">Estoque</th>
+                            <th scope="col" style="width: 10%; text-align: center;">Imagem</th>
+                            <th scope="col" style="width: 10%; text-align: center;">COD. Barra</th>
+                            <th scope="col" style="width: 20%; text-align: center;">Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody-equipamento">
+                    <tbody id="tbody-equipamentos">
                         <!-- PUXARÁ POR AJAX -->
                     </tbody>
                 </table>
@@ -90,7 +91,7 @@
         </div>
         <div class="card-footer d-flex justify-content-between align-items-center">
             <small class="text-muted">Equipamentos de EPI</small>
-            <small class="text-muted" id='qtd_epi'>1</small>
+            <small class="text-muted" id='qtd_epi'></small>
         </div>
     </div>
 
@@ -104,7 +105,7 @@
                 <div class="modal-body pt-0">
                     <p class="text-muted">Configure as informações do equipamento</p>
 
-                    <form id="form-equipamento" onsubmit="return false">
+                    <form id="form-equipamentos" onsubmit="return false">
                         <div class="row mb-3">
                             <input type="hidden" id="txt-id-equip" value="NOVO" readonly>
                             <div class="col-md-6 mb-3">
