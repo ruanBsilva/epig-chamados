@@ -18,6 +18,7 @@
     <script src="assets/js/colaborador.js"></script>
     <script src="assets/js/carregarTela.js"></script>
     <script src="assets/js/equipamento.js"></script>
+    <script src="assets/js/emprestimos.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
