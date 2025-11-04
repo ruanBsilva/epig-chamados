@@ -5,7 +5,7 @@
         private $dbPorta = '3307';
         private $dbName = 'epig_seguros';
         private $dbUser = 'root';
-        private $dbPassword = 'masterkey';
+        private $dbPassword = 'Masterkey';
 
         // Construtor
         public function __construct() {

@@ -134,10 +134,10 @@ function listarEquipamentos() {
                 document.getElementById('qtd-sem-estoque').textContent = count.sem_estoque;
                 // FALTA ADICIONAR AINDA document.getElementById('qtd-em-uso').textContent = count.em_uso;
             } else {
-                tabelaUsuarios.innerHTML = '<tr><td colspan="6" class="text-center p-4 text-muted">Nenhum equipamento encontrado.</td></tr>';
+                tabelaEquipamentos.innerHTML = '<tr><td colspan="6" class="text-center p-4 text-muted">Nenhum equipamento encontrado.</td></tr>';
                 document.getElementById('qtd_epi').textContent = '0 EPI(s) encontrado(s)';
                 document.getElementById('total-card-equip').textContent = '0';
-                document.getElementById('qtd-estoque').textContent = '0';
+                document.getElementById('qtd-estoque').textContent = '0';   
                 document.getElementById('qtd-sem-estoque').textContent = '0';
                 document.getElementById('qtd-em-uso').textContent = '0';
             }

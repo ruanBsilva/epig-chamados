@@ -134,3 +134,28 @@ function alterarUsuario(idUsuario) {
         }
     });
 }
+
+function deletarUsuario(idUsuario) {
+    var confirmou = confirm('Deseja realmente deletar esse usuário?');
+    if (confirmou) {
+        $.ajax({
+            type: 'post',
+            url: 'src/usuario/deletar.php',
+            dataType: 'json',
+            data: {
+                'id': idUsuario
+            },
+            success: function (retorno) {
+                if (retorno.status === 'sucesso') {
+                    alert(retorno.msg);
+                    listarUsuarios();
+                } else {
+                    alert(retorno.msg);
+                }
+            },
+            error: function (erro) {
+                alert('Ocorreu um erro na requisição: ' + erro);
+            }
+        });
+    }
+}
