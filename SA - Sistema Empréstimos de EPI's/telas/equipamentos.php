@@ -1,14 +1,3 @@
-<h3>Gerador de Código de Barras com AJAX</h3>
-
-<div>
-    <label for="txt-dado-codigo">Texto para o Código de Barras:</label>
-    <input type="text" id="txt-dado-codigo">
-    <button onclick="geraCodBarra()">Gerar Código (com AJAX)</button>
-</div>
-
-<img id="img-codigo-ajax" alt="Código de barras" style="margin-top: 15px;">
-
-
 <div class="equipamentos-container">
     <div class="equipamentos-header d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gerenciamento de Equipamentos de EPI</h1>
@@ -79,13 +68,12 @@
                             <th scope="col" style="width: 20%;">Descrição</th>
                             <th scope="col" style="width: 10%;">Estoque</th>
                             <th scope="col" style="width: 10%; text-align: center;">Imagem</th>
-                            <th scope="col" style="width: 10%; text-align: center;">COD. Barra</th>
+                            <th scope="col" style="width: 10%; text-align: center;">Cód. Barra</th>
                             <th scope="col" style="width: 20%; text-align: center;">Ações</th>
                         </tr>
                     </thead>
                     <tbody id="tbody-equipamentos">
-                        <!-- PUXARÁ POR AJAX -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -99,7 +87,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content new-user-modal-content">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title" id="novoEquipamentoModalLabel">Novo Usuário</h5>
+                    <h5 class="modal-title" id="novoEquipamentoModalLabel">Novo Equipamento</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body pt-0">
@@ -110,15 +98,15 @@
                             <input type="hidden" id="txt-id-equip" value="NOVO" readonly>
                             <div class="col-md-6 mb-3">
                                 <label for="txt-nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="txt-nome" placeholder="Óculos EPI" required>
+                                <input type="text" class="form-control" id="txt-nome" placeholder="Ex: Óculos EPI" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="txt-descricao" class="form-label">Descrição</label>
-                                <input type="text" class="form-control" id="txt-descricao" placeholder="Proteje o olho" required>
+                                <input type="text" class="form-control" id="txt-descricao" placeholder="Ex: Proteção ocular" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="qtd" class="form-label">Estoque</label>
-                                <input type="number" class="form-control" id="qtd" min="1" required>
+                                <input type="number" class="form-control" id="qtd" min="1" placeholder="0" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="img" class="form-label">Imagem</label>
@@ -135,5 +123,3 @@
         </div>
     </div>
 </div>
-
-<!-- ID, NOME, DESCRICAO, QTD, FOTO EQUIPAMENTO, IMG CODIGO DE BARRA -->

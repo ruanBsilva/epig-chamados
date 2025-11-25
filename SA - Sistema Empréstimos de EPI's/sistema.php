@@ -14,6 +14,8 @@
     
     <link href="assets/css/sistema.css" rel="stylesheet"> 
     <link href="assets/css/usuarios.css" rel="stylesheet"> 
+    <link href="assets/css/equipamentos.css" rel="stylesheet"> 
+    <link href="assets/css/emprestimos.css" rel="stylesheet">  
     <link href="assets/css/colaboradores.css" rel="stylesheet">     
 </head>
 <body>

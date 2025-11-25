@@ -1,14 +1,12 @@
 /*
- * Arquivo: assets/css/colaboradores.css
+ * Arquivo: assets/css/emprestimos.css
  * Baseado no padrão de usuarios.css
  */
 
-.colaboradores-container {
-    padding: 20px;
-}
+.emprestimos-container { padding: 20px; }
 
 /* Header e Botão Verde */
-.colaboradores-header .new-user-btn {
+.emprestimos-header .new-user-btn {
     font-size: 14px;
     padding: 8px 15px;
     border-radius: 8px;
@@ -29,15 +27,15 @@
 .card-stat h6 { font-size: 12px; font-weight: 600; color: #6c757d; }
 .card-stat .stat-value { font-size: 32px; font-weight: 700; color: #333; }
 
-/* Bordas coloridas dos cards */
-.total-card { border-left: 5px solid #007bff; }
+/* Cores dos Cards - Adaptadas para contexto de Empréstimo */
+.total-card { border-left: 5px solid #007bff; } /* Ativos */
 .total-card .bi { color: #007bff; }
-.admin-card { border-left: 5px solid #28a745; } /* Verde para Ativos */
-.admin-card .bi { color: #28a745; }
-.operador-card { border-left: 5px solid #dc3545; } /* Vermelho para Sem EPIs */
-.operador-card .bi { color: #dc3545; }
-.visualizador-card { border-left: 5px solid #6f42c1; } /* Roxo para Com EPIs */
-.visualizador-card .bi { color: #6f42c1; }
+.admin-card { border-left: 5px solid #dc3545; } /* Vencidos (Vermelho - Alerta) */
+.admin-card .bi { color: #dc3545; }
+.operador-card { border-left: 5px solid #ffc107; } /* A Vencer (Amarelo - Atenção) */
+.operador-card .bi { color: #ffc107; }
+.visualizador-card { border-left: 5px solid #6c757d; } /* Histórico (Cinza) */
+.visualizador-card .bi { color: #6c757d; }
 
 /* Tabela */
 .table-card { border-radius: 12px; overflow: hidden; }
