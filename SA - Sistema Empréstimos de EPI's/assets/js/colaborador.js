@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    inicializarColaboradores();
+});
 
 function inicializarColaboradores() {
     listarColaborador()
@@ -102,52 +105,52 @@ function listarColaborador() {
 
 
 
-function editarColaborador(idColaborador) {
+ function editarColaborador(idColaborador){
     $.ajax({
         type: 'POST',
         url: 'src/colaborador/selecionarPorID.php',
         dataType: 'JSON',
-        data: {
+        data:{
             'idColaborador': idColaborador
         },
-        success: function (resposta) {
+        success: function(resposta){
             var colaborador = resposta.dados
             document.getElementById('txt-id-colaborador').value = colaborador['idColaborador'],
-                document.getElementById('txt-nome-colaborador').value = colaborador['nome'],
-                document.getElementById('cpf-colaborador').value = colaborador['cpf'],
-                document.getElementById('txt-email-colaborador').value = colaborador['email'],
-                document.getElementById('txt-telefone-colaborador').value = colaborador['telefone'],
-                document.getElementById('data-nasc-colaborador').value = colaborador['nascimento'],
-                document.getElementById('txt-cargo').value = colaborador['cargo'],
-                abrirModal()
+            document.getElementById('txt-nome-colaborador').value = colaborador['nome'],
+            document.getElementById('cpf-colaborador').value = colaborador['cpf'],
+            document.getElementById('txt-email-colaborador').value = colaborador['email'],
+            document.getElementById('txt-telefone-colaborador').value = colaborador['telefone'],
+            document.getElementById('data-nasc-colaborador').value = colaborador['nascimento'],
+            document.getElementById('txt-cargo').value = colaborador['cargo'],
+            abrirModal()
         },
-        error: function (erro) {
+        error: function(erro){
             console.log('deu erro')
         }
-    });
-
+     });
+     
 }
 
-function deletarColaborador(idColaborador) {
+function deletarColaborador(idColaborador){
     var confirmou = confirm('Deseja realmente deletar esse colaborador?');
-    if (confirmou) {
+    if(confirmou){
         $.ajax({
-            type: 'POST',
+            type:'POST',
             url: 'src/colaborador/excluir.php',
             dataType: 'JSON',
-            data: {
+            data:{
                 'idColaborador': idColaborador
             },
-            success: function (resposta) {
+            success: function(resposta){
                 confirm()
-                if (resposta.status === 'sucesso') {
-                    alert(resposta.msg);
+                if (resposta.status === 'sucesso'){
+                    alert (resposta.msg);
                     listarColaborador();
-                } else {
+                }else{
                     alert(resposta.msg);
                 }
             },
-            error: function (error) {
+            error: function(error){
                 alert('Deu erro ' + error)
             }
         })
