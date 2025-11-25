@@ -38,7 +38,7 @@
                         <button class="nav-link bi bi-shield-check" onclick="carregarTela('equipamentos')">Equipamentos</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link bi bi-people-fill" onclick="carregarTela('colaboradores')">Colaboradores</button>
+                        <button class="nav-link bi bi-people" onclick="carregarTela('colaboradores')">Colaboradores</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link bi bi-person-gear" onclick="carregarTela('usuarios')">Usuários</button>

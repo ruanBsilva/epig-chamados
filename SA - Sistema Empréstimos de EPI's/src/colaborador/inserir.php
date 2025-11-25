@@ -1,5 +1,4 @@
 <?php
-
     require '../classBanco/BancoDeDados.php';
 
     $form = [

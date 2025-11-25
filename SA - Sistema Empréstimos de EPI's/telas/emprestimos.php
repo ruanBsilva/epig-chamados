@@ -1,7 +1,7 @@
 <div class="emprestimos-container">
     <div class="emprestimos-header d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gerenciamento de Empréstimos</h1>
-        <button class="btn btn-primary new-user-btn" type="button" data-bs-toggle="modal" data-bs-target="#meuModal" onclick='abrirModalNovo()'>
+        <button class="btn btn-primary new-user-btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalEmprestimos">
             <i class="bi bi-plus-lg me-2"></i> Novo Empréstimo
         </button>
     </div>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="ModalEmprestimos" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content new-user-modal-content">
                 <div class="modal-header border-0 pb-0">
@@ -93,19 +93,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="fecharModal()"></button>
                 </div>
                 <div class="modal-body pt-0">
-                    <p class="text-muted">Selecione o colaborador e o equipamento para realizar o empréstimo</p>
+                    <p class="text-muted">Selecione o colaborador, o equipamento e a quantidade</p>
                     
                     <form id="form-emprestimos" onsubmit="return false">
+                        <input type="hidden" id="txt-id-emprestimo" value="NOVO" readonly>
+                        
                         <div class="row mb-3">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12">
                                 <label for="list-colaborador" class="form-label">Colaborador</label>
                                 <select class="form-select" id="list-colaborador">
                                     </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-9 mb-3">
                                 <label for="list-equipamento" class="form-label">Equipamento</label>
                                 <select class="form-select" id="list-equipamento">
                                     </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="txt-qtd" class="form-label">Qtd.</label>
+                                <input type="number" class="form-control" id="txt-qtd" min="1" value="1" required>
                             </div>
                         </div>
 

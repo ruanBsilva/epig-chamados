@@ -2,10 +2,10 @@
     class BancoDeDados {
         private $conexao;
         private $dbHost = 'localhost';
-        private $dbPorta = '3307';
+        private $dbPorta = '3306';
         private $dbName = 'epig_seguros';
         private $dbUser = 'root';
-        private $dbPassword = 'masterkey';
+        private $dbPassword = '';
 
         // Construtor
         public function __construct() {
@@ -33,5 +33,19 @@
         public function ultimoIdInserido() {
             return $this->conexao->lastInsertId();
         }
+        
+        // Inicia a transação
+        public function iniciarTransacao() {
+            return $this->conexao->beginTransaction();
+        }
+
+        // Salva a transação
+        public function confirmarTransacao() {
+            return $this->conexao->commit();
+        }
+
+        // Desfaz a transação
+        public function cancelarTransacao() {
+            return $this->conexao->rollBack();
+        }
     }
-    

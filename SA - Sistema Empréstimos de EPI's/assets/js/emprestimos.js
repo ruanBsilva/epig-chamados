@@ -47,18 +47,33 @@ function listEquipamento() {
     });
 }
 
-function salvarEmprestimo(){
-    var formulario = new FormData(document.getElementById('form-emprestimos'))
+function salvarEmprestimo() {
+    var id = document.getElementById('txt-id-emprestimo').value;
+    var colaborador = document.getElementById('list-colaborador').value;
+    var equipamento = document.getElementById('list-equipamento').value;
+    var qtd = document.getElementById('txt-qtd').value;
+    var data_emprestimo = document.getElementById('data-emprestimo').value;
+    var data_prev_emprestimo = document.getElementById('data-prev-devolucao').value;
+    var obs = document.getElementById('txt-obs').value;
+
+    var formulario = new FormData();
+    formulario.append('id', id);
+    formulario.append('colaborador', colaborador);
+    formulario.append('equipamento', equipamento);
+    formulario.append('qtd', qtd);
+    formulario.append('data_emprestimo', data_emprestimo);
+    formulario.append('data_prev_emprestimo', data_prev_emprestimo);
+    formulario.append('obs', obs);
     
     $.ajax({
         type: 'post',
-        url: 'src/emprestimos/inserir.php',
+        url: 'src/emprestimo/inserir.php',
         dataType: 'json',
         processData: false,
         contentType: false,
         data: formulario,
         success: function(resposta){
-            alert(resposta['mensagem']);
+            alert(resposta['msg']);
 
             if(resposta['status'] === 'sucesso'){
                 document.getElementById('form-emprestimos').reset();
@@ -69,10 +84,6 @@ function salvarEmprestimo(){
             alert('Ocorreu um erro na requisição: ' + erro);
         }
     });
-}
-
-function listarColaborador(){
-
 }
 
 
