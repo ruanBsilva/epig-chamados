@@ -8,7 +8,8 @@
         $sql_counts = 'SELECT COUNT(id_equipamento) AS total_equipamentos
                             , COALESCE(SUM(CASE WHEN estoque > 0 THEN 1 ELSE 0 END), 0) AS em_estoque
                             , COALESCE(SUM(CASE WHEN estoque = 0 THEN 1 ELSE 0 END), 0) AS sem_estoque
-                        FROM equipamentos'; // FALTA ADICIONAR JOIN COM ESMPRESTIMOS PARA EQUIP EM USO
+                            , (SELECT COALESCE(SUM(qtd), 0) FROM emprestimos) AS em_uso
+                        FROM equipamentos';
         $counts = $banco->consultar($sql_counts, [], true);
 
         $resposta = [

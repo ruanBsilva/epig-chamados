@@ -56,6 +56,7 @@ function listarUsuarios() {
                 usuarios.forEach(function (usuario) {
                     var linha = document.createElement('tr');
                     linha.innerHTML = `
+                        <td>${usuario['id_usuario']}</td>
                         <td>${usuario['nome']}</td>
                         <td>${usuario['usuario']}</td>
                         <td>${usuario['email']}</td>

@@ -63,6 +63,7 @@
                 <table class="table table-hover mb-0 user-table">
                     <thead>
                         <tr>
+                            <th scope="col" style="width: 10%;">Id</th>
                             <th scope="col" style="width: 20%;">Usuário</th>
                             <th scope="col" style="width: 10%;">Login</th>
                             <th scope="col" style="width: 20%;">Email</th>
