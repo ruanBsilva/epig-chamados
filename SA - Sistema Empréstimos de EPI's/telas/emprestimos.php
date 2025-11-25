@@ -1,9 +1,59 @@
-<div class="equipamentos-container">
-    <div class="equipamentos-header d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3">Gerenciamento de Empréstimos de EPI</h1>
-        <button class="btn btn-primary new-user-btn" type="button" data-bs-toggle="modal" data-bs-target="#novoEmprestimoModal">
-            <i class="bi bi-plus-lg me-2"></i> Novo Empréstimo 
-        </button>
+
+
+<div>
+    <h2>Gerenciamento de Empréstimos</h2>
+</div>
+
+<div class="containerButton">
+    <button type="button" class="btnNovoColaborador" data-toggle="modal" data-target="#meuModal" onclick='abrirModalNovo()'>
+    + Novo Empréstimo
+</button>
+</div>
+
+<div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Novo Empréstimo</h5>
+          <span aria-hidden="true">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="form-colaborador" onsubmit="return false">
+            <div>
+                <label for="txt-colaborador">Colaborador</label>
+                <select class="form-select" id="list-colaborador">
+
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="txt-equipamento">Equipamento</label>
+                <select class="form-select" id="list-equipamento">
+
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="data-emprestimo">Data do empréstimo</label>
+                <input class="form-control" type="date" id="data-emprestimo" required>
+            </div>
+            <br>
+            <div>
+                <label for="data-prev-devolucao">Data prevista devolução</label>
+                <input class="form-control" type="date" id="data-prev-devolucao" required>
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-text">Observaçãoes</span>
+                <textarea class="form-control" id="txt-obs" aria-label="With textarea" placeholder="Informações adicionais sobre o empréstimo"></textarea>
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"  onclick="fecharModal()" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" onclick="salvarEmprestimo()">Salvar</button>
+      </div>
     </div>
     <p class="text-muted mb-4">Gerencie todos os empréstimos e devoluções de EPIs</p>
 
