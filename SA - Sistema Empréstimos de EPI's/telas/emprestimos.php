@@ -18,7 +18,7 @@
           <span aria-hidden="true">&times;</span>
       </div>
       <div class="modal-body">
-        <form id="form-colaborador" onsubmit="return false">
+        <form id="form-emprestimos" onsubmit="return false">
             <div>
                 <label for="txt-colaborador">Colaborador</label>
                 <select class="form-select" id="list-colaborador">

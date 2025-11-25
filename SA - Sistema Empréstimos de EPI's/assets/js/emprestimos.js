@@ -46,3 +46,33 @@ function listEquipamento() {
         }
     });
 }
+
+function salvarEmprestimo(){
+    var formulario = new FormData(document.getElementById('form-emprestimos'))
+    
+    $.ajax({
+        type: 'post',
+        url: 'src/emprestimos/inserir.php',
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: formulario,
+        success: function(resposta){
+            alert(resposta['mensagem']);
+
+            if(resposta['status'] === 'sucesso'){
+                document.getElementById('form-emprestimos').reset();
+                listarEmprestimos();
+            }
+        },
+        error: function(erro){
+            alert('Ocorreu um erro na requisição: ' + erro);
+        }
+    });
+}
+
+function listarColaborador(){
+
+}
+
+
