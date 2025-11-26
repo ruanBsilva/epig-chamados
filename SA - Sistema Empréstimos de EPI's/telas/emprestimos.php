@@ -95,13 +95,13 @@
                 <div class="modal-body pt-0">
                     <p class="text-muted">Selecione o colaborador, o equipamento e a quantidade</p>
                     
-                    <form id="form-emprestimos" onsubmit="return false">
-                        <input type="hidden" id="txt-id-emprestimo" value="NOVO" readonly>
+                    <form name="form-emprestimos" id="form-emprestimos" onsubmit="return false">
+                        <input type="hidden" id="txt-id-emprestimo" name="txt-id-emprestimo" value="NOVO" readonly>
                         
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <label for="list-colaborador" class="form-label">Colaborador</label>
-                                <select class="form-select" id="list-colaborador">
+                                <select class="form-select" id="list-colaborador" name="list-colaborador">
                                     </select>
                             </div>
                         </div>
@@ -109,29 +109,29 @@
                         <div class="row mb-3">
                             <div class="col-md-9 mb-3">
                                 <label for="list-equipamento" class="form-label">Equipamento</label>
-                                <select class="form-select" id="list-equipamento">
+                                <select class="form-select" id="list-equipamento" name="list-equipamento">
                                     </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="txt-qtd" class="form-label">Qtd.</label>
-                                <input type="number" class="form-control" id="txt-qtd" min="1" value="1" required>
+                                <input type="number" class="form-control" id="txt-qtd" name="txt-qtd" min="1" value="1" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3">
                                 <label for="data-emprestimo" class="form-label">Data do empréstimo</label>
-                                <input class="form-control" type="date" id="data-emprestimo" required>
+                                <input class="form-control" type="date" id="data-emprestimo" name="data-emprestimo" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="data-prev-devolucao" class="form-label">Previsão de Devolução</label>
-                                <input class="form-control" type="date" id="data-prev-devolucao" required>
+                                <input class="form-control" type="date" id="data-prev-devolucao" name="data-prev-devolucao" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="txt-obs" class="form-label">Observações</label>
-                            <textarea class="form-control" id="txt-obs" rows="3" placeholder="Informações adicionais sobre o estado do equipamento ou condições..."></textarea>
+                            <textarea class="form-control" id="txt-obs" rows="3" name="txt-obs" placeholder="Informações adicionais sobre o estado do equipamento ou condições..."></textarea>
                         </div>
                     </form>
                 </div>

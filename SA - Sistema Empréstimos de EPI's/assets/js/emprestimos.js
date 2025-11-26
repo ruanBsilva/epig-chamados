@@ -36,7 +36,7 @@ function listEquipamento() {
 
             var equipamentos = resposta.dados;
             var opcao = "<option value=''>Selecione o equipamento...</option>";
-            equipamentos.forEach(function (equipamento) {
+            equipamentos.forEach(function(equipamento) {
                 opcao += `<option value='${equipamento['id_equipamento']}'>${equipamento['nome_equip']}</option>`;
             });
             listarEquipamentos.innerHTML = opcao;
@@ -48,23 +48,10 @@ function listEquipamento() {
 }
 
 function salvarEmprestimo() {
-    var id = document.getElementById('txt-id-emprestimo').value;
-    var colaborador = document.getElementById('list-colaborador').value;
-    var equipamento = document.getElementById('list-equipamento').value;
-    var qtd = document.getElementById('txt-qtd').value;
-    var data_emprestimo = document.getElementById('data-emprestimo').value;
-    var data_prev_emprestimo = document.getElementById('data-prev-devolucao').value;
-    var obs = document.getElementById('txt-obs').value;
 
-    var formulario = new FormData();
-    formulario.append('id', id);
-    formulario.append('colaborador', colaborador);
-    formulario.append('equipamento', equipamento);
-    formulario.append('qtd', qtd);
-    formulario.append('data_emprestimo', data_emprestimo);
-    formulario.append('data_prev_emprestimo', data_prev_emprestimo);
-    formulario.append('obs', obs);
-    
+    var formulario = new FormData(document.getElementById('form-emprestimos'));
+
+    console.log(formulario);
     $.ajax({
         type: 'post',
         url: 'src/emprestimo/inserir.php',

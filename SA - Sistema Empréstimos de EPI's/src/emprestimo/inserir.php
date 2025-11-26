@@ -1,15 +1,13 @@
 <?php
     require '../classBanco/BancoDeDados.php';
 
-    $form = [
-        'id'                    => $_POST['id']                     ?? null,
-        'colaborador'           => $_POST['colaborador']            ?? null,
-        'equipamento'           => $_POST['equipamento']            ?? null,
-        'qtd'                   => $_POST['qtd']                    ?? null,
-        'data_emprestimo'       => $_POST['data_emprestimo']        ?? null,
-        'data_prev_emprestimo'  => $_POST['data_prev_emprestimo']   ?? null,
-        'obs'                   => $_POST['obs']                    ?? null,
-    ];
+    $form['id-emprestimo'] = $_POST['txt-id-emprestimo'] ?? null;
+    $form['colaborador'] = $_POST['list-colaborador'] ?? null;
+    $form['equipamento'] = $_POST['list-equipamento'] ?? null;
+    $form['qtd'] = $_POST['txt-qtd'] ?? null;
+    $form['data-emprestimo'] = $_POST['data-emprestimo'] ?? null;
+    $form['data-prev-devolucao'] = $_POST['data-prev-devolucao'] ?? null;
+    $form['obs'] = $_POST['txt-obs'] ?? null;
 
     if(in_array(null, $form)){
         $resposta = [
@@ -30,8 +28,8 @@
             $form['colaborador'],
             $form['equipamento'],
             $form['qtd'],
-            $form['data_emprestimo'],
-            $form['data_prev_emprestimo'],
+            $form['data-emprestimo'],
+            $form['data-prev-devolucao'],
             $form['obs']
         ];
         $banco->executarComando($sql, $parametros);
