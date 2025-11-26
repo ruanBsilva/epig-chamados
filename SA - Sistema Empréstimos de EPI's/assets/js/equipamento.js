@@ -7,6 +7,8 @@ function salvarEquipamento() {
     var id = document.getElementById('txt-id-equip').value;
     if (id === 'NOVO') {
         executarSalvarEquipamento();
+    } else {
+        executarSalvarEquipamento();
     }
 }
 
@@ -46,7 +48,7 @@ function executarSalvarEquipamento() {
     var nome = document.getElementById('txt-nome').value;
     var descricao = document.getElementById('txt-descricao').value;
     var estoque = document.getElementById('qtd').value;
-    var destino = id === 'NOVO' ? 'src/equipamento/inserir.php' : 'src/equipamento/editar.php';
+    var destino = id === 'NOVO' ? 'src/equipamento/inserir.php' : 'src/equipamento/alterar.php';
 
     // Cria o FormData e adiciona os campos
     var formData = new FormData();
@@ -137,7 +139,7 @@ function listarEquipamentos() {
                 tabelaEquipamentos.innerHTML = '<tr><td colspan="6" class="text-center p-4 text-muted">Nenhum equipamento encontrado.</td></tr>';
                 document.getElementById('qtd_epi').textContent = '0 EPI(s) encontrado(s)';
                 document.getElementById('total-card-equip').textContent = '0';
-                document.getElementById('qtd-estoque').textContent = '0';   
+                document.getElementById('qtd-estoque').textContent = '0';
                 document.getElementById('qtd-sem-estoque').textContent = '0';
                 document.getElementById('qtd-em-uso').textContent = '0';
             }

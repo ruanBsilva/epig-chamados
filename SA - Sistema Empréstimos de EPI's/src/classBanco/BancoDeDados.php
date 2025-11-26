@@ -2,10 +2,10 @@
     class BancoDeDados {
         private $conexao;
         private $dbHost = 'localhost';
-        private $dbPorta = '3306';
+        private $dbPorta = '3307';
         private $dbName = 'epig_seguros';
         private $dbUser = 'root';
-        private $dbPassword = '';
+        private $dbPassword = 'masterkey';
 
         // Construtor
         public function __construct() {
