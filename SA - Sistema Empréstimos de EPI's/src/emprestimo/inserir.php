@@ -21,33 +21,44 @@
     try {
         $banco = new BancoDeDados;
 
-        $banco->iniciarTransacao();
+        $sql_consulta = 'SELECT estoque FROM equipamentos WHERE id_equipamento = ?';
+        $produto = $banco->consultar($sql_consulta, [$form['equipamento']], FALSE);
+        
+        if ($produto['estoque'] < $form['qtd']) {
+            $resposta = [
+                'status' => 'erro',
+                'msg'    => "Estoque insuficiente! Disponível: " . $produto['estoque'] . ", Solicitado:" . $form['qtd']
+            ];
+            echo json_encode($resposta);
+            exit;
+        } else {
+            $banco->iniciarTransacao();
+            $sql =  'INSERT INTO emprestimos (colaborador, equipamento, qtd, data_emprestimo, data_prev_emprestimo, obs) VALUE (?, ?, ?, ?, ?, ?)';
+            $parametros = [
+                $form['colaborador'],
+                $form['equipamento'],
+                $form['qtd'],
+                $form['data-emprestimo'],
+                $form['data-prev-devolucao'],
+                $form['obs']
+            ];
+            $banco->executarComando($sql, $parametros);
 
-        $sql =  'INSERT INTO emprestimos (colaborador, equipamento, qtd, data_emprestimo, data_prev_emprestimo, obs) VALUE (?, ?, ?, ?, ?, ?)';
-        $parametros = [
-            $form['colaborador'],
-            $form['equipamento'],
-            $form['qtd'],
-            $form['data-emprestimo'],
-            $form['data-prev-devolucao'],
-            $form['obs']
-        ];
-        $banco->executarComando($sql, $parametros);
+            $sql_equipamentos = 'UPDATE equipamentos SET estoque = estoque - ? WHERE id_equipamento = ?';
+            $parametros_produto = [
+                $form['qtd'],
+                $form['equipamento']
+            ];
+            $banco->executarComando($sql_equipamentos, $parametros_produto);
 
-        $sql_equipamentos = 'UPDATE equipamentos SET estoque = estoque - ? WHERE id_equipamento = ?';
-        $parametros_produto = [
-            $form['qtd'],
-            $form['equipamento']
-        ];
-        $banco->executarComando($sql_equipamentos, $parametros_produto);
+            $banco->confirmarTransacao();
 
-        $banco->confirmarTransacao();
-
-        $resposta = [
-            'status'    => 'sucesso',
-            'msg'       => 'Empréstimo realizado com sucesso'
-        ];
-        echo json_encode($resposta);
+            $resposta = [
+                'status'    => 'sucesso',
+                'msg'       => 'Empréstimo realizado com sucesso'
+            ];
+            echo json_encode($resposta);
+        }        
     } catch (PDOException $erro) {
         $banco->cancelarTransacao();
         
