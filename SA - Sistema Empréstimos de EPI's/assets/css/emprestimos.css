@@ -1,11 +1,5 @@
-/*
- * Arquivo: assets/css/emprestimos.css
- * Baseado no padrão de usuarios.css
- */
-
 .emprestimos-container { padding: 20px; }
 
-/* Header e Botão Verde */
 .emprestimos-header .new-user-btn {
     font-size: 14px;
     padding: 8px 15px;
@@ -15,7 +9,6 @@
     color: #ffffff;
 }
 
-/* Cards */
 .card-stats-row .col { padding: 0 10px; }
 .card-stat {
     border: 1px solid #e0e0e0;
@@ -27,17 +20,15 @@
 .card-stat h6 { font-size: 12px; font-weight: 600; color: #6c757d; }
 .card-stat .stat-value { font-size: 32px; font-weight: 700; color: #333; }
 
-/* Cores dos Cards - Adaptadas para contexto de Empréstimo */
-.total-card { border-left: 5px solid #007bff; } /* Ativos */
+.total-card { border-left: 5px solid #007bff; }
 .total-card .bi { color: #007bff; }
-.admin-card { border-left: 5px solid #dc3545; } /* Vencidos (Vermelho - Alerta) */
+.admin-card { border-left: 5px solid #dc3545; }
 .admin-card .bi { color: #dc3545; }
-.operador-card { border-left: 5px solid #ffc107; } /* A Vencer (Amarelo - Atenção) */
+.operador-card { border-left: 5px solid #ffc107; }
 .operador-card .bi { color: #ffc107; }
-.visualizador-card { border-left: 5px solid #6c757d; } /* Histórico (Cinza) */
+.visualizador-card { border-left: 5px solid #6c757d; }
 .visualizador-card .bi { color: #6c757d; }
 
-/* Tabela */
 .table-card { border-radius: 12px; overflow: hidden; }
 .user-table thead th {
     background-color: #f8f9fa;
@@ -49,7 +40,6 @@
 .user-table tbody td { vertical-align: middle; font-size: 14px; }
 .table-card .card-footer { background-color: #fff; border-top: 1px solid #e9ecef; }
 
-/* Modal */
 .new-user-modal-content { border-radius: 12px; padding: 10px; }
 .new-user-modal-content .form-control,
 .new-user-modal-content .form-select {
@@ -60,7 +50,6 @@
 }
 .new-user-modal-content .form-label { font-size: 14px; font-weight: 500; color: #343a40; margin-bottom: 5px; }
 
-/* Botões do Modal */
 .btn-create-user {
     background-color: #000;
     border-color: #000;

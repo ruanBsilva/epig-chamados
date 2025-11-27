@@ -1,18 +1,12 @@
-/*
- * Arquivo: assets/css/equipamentos.css
- * Padrão visual baseado na tela de Usuários
- */
-
 .equipamentos-container {
     padding: 20px;
 }
 
-/* --- Cabeçalho e Botão Principal --- */
 .equipamentos-header .new-user-btn {
     font-size: 14px;
     padding: 8px 15px;
     border-radius: 8px;
-    background-color: #39a04d; /* Verde padrão */
+    background-color: #39a04d; 
     border-color: #39a04d;
     color: #ffffff;
     transition: background-color 0.2s;
@@ -23,7 +17,6 @@
     border-color: #2e853e;
 }
 
-/* --- Cards de Estatísticas --- */
 .card-stats-row .col {
     padding: 0 10px;
 }
@@ -51,24 +44,15 @@
     color: #333;
 }
 
-/* Cores específicas dos cards de Equipamento */
-/* Total - Azul */
 .total-card { border-left: 5px solid #007bff; }
 .total-card .bi { color: #007bff; }
-
-/* Em Estoque - Verde */
 .admin-card { border-left: 5px solid #28a745; }
 .admin-card .bi { color: #28a745; }
-
-/* Em Uso - Amarelo/Laranja (Indica atenção/uso) */
 .operador-card { border-left: 5px solid #fd7e14; }
 .operador-card .bi { color: #fd7e14; }
-
-/* Sem Estoque - Vermelho (Alerta) */
 .visualizador-card { border-left: 5px solid #dc3545; }
 .visualizador-card .bi { color: #dc3545; }
 
-/* --- Tabela --- */
 .table-card {
     border-radius: 12px;
     overflow: hidden;
@@ -92,7 +76,6 @@
     border-top: 1px solid #e9ecef;
 }
 
-/* --- Modal --- */
 .new-user-modal-content {
     border-radius: 12px;
     padding: 10px;
@@ -128,7 +111,6 @@
     padding: 10px 20px;
 }
 
-/* Ajuste para inputs do tipo number (remove setas) */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;

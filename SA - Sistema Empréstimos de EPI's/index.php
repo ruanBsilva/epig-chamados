@@ -68,7 +68,7 @@
         function mostrarSenha() {
             var inputSenha = document.getElementById('txt-senha');
             var botao = document.getElementById('btn-password');
-            var icone = botao.querySelector('i'); // Seleciona o ícone dentro do botão
+            var icone = botao.querySelector('i');
             if (inputSenha.type === "password") {
                 inputSenha.type = "text";
                 icone.classList.remove('bi-eye-fill');
@@ -80,11 +80,11 @@
             }
         }
 
-        // Função para entrar no sistema (sua lógica AJAX permanece a mesma)
+        // Função para entrar no sistema
         function entrar() {
             var usuario = document.getElementById('txt-usuario').value;
             var senha = document.getElementById('txt-senha').value;
-            var lembrar = document.getElementById('check-lembrar').checked; // Usar .checked para checkboxes
+            var lembrar = document.getElementById('check-lembrar').checked; 
 
             // AJAX
             $.ajax({

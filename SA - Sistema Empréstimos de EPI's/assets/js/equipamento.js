@@ -208,3 +208,15 @@ function alterarEquipamento(idEquipamento) {
         }
     });
 }
+
+
+function prepararNovoEquipamento() {
+    document.getElementById('form-equipamentos').reset();
+    document.getElementById('txt-id-equip').value = 'NOVO';
+    document.getElementById('novoEquipamentoModalLabel').textContent = 'Novo Equipamento';
+    var btnSalvar = document.querySelector('#novoEquipamentoModal .btn-create-user');
+    if (btnSalvar) {
+        btnSalvar.textContent = 'Salvar';
+    }
+    $('#novoEquipamentoModal').modal('show');
+}

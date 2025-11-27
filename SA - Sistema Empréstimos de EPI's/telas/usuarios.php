@@ -1,7 +1,7 @@
 <div class="usuarios-container">
     <div class="usuarios-header d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gerenciamento de Usuários</h1>
-        <button class="btn btn-primary new-user-btn" type="button" data-bs-toggle="modal" data-bs-target="#novoUsuarioModal">
+        <button class="btn btn-primary new-user-btn" type="button" onclick="prepararNovoUsuario()">
             <i class="bi bi-plus-lg me-2"></i> Novo Usuário
         </button>
     </div>

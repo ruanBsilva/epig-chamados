@@ -1,27 +1,14 @@
-/*
- * Arquivo: assets/css/usuarios.css
- * Descrição: Estilos personalizados para a tela de Gerenciamento de Usuários.
- */
-
-/* --- Estilos Gerais do Título e Botão --- */
 .usuarios-header .new-user-btn {
     font-size: 14px;
     padding: 8px 15px;
     border-radius: 8px;
-
-    /* --- CÓDIGO ADICIONADO --- */
     background-color: #39a04d;
-    /* A cor escura que pediste */
     border-color: #39a04d;
-    /* A cor da borda a combinar */
     color: #ffffff;
-    /* Cor do texto (branco) para legibilidade */
 }
 
-/* --- Estilos dos Cards de Contagem --- */
 .card-stats-row .col {
     padding: 0 10px;
-    /* Ajusta o espaçamento entre cards */
 }
 
 .card-stat {
@@ -47,8 +34,6 @@
     color: #333;
 }
 
-/* Cores dos Ícones e Borda Específica (usando as cores da imagem) */
-/* Total Card - Azul */
 .total-card {
     border-left: 5px solid #007bff;
 }
@@ -57,7 +42,6 @@
     color: #007bff;
 }
 
-/* Administrador Card - Vermelho */
 .admin-card {
     border-left: 5px solid #dc3545;
 }
@@ -66,17 +50,14 @@
     color: #dc3545;
 }
 
-/* Operador Card - Roxo/Azul Claro */
 .operador-card {
     border-left: 5px solid #6f42c1;
 }
 
-/* Um roxo próximo ao ícone da imagem */
 .operador-card .bi {
     color: #6f42c1;
 }
 
-/* Visualizador Card - Verde */
 .visualizador-card {
     border-left: 5px solid #28a745;
 }
@@ -85,12 +66,9 @@
     color: #28a745;
 }
 
-
-/* --- Estilos da Tabela de Usuários --- */
 .table-card {
     border-radius: 12px;
     overflow: hidden;
-    /* Garante que as bordas da tabela e card combinem */
 }
 
 .user-table thead th {
@@ -106,7 +84,6 @@
     font-size: 14px;
 }
 
-/* Estilo para as "tags" de Perfil (Administrador, Operador, Visualizador) */
 .profile-tag {
     display: inline-block;
     padding: 4px 10px;
@@ -119,26 +96,19 @@
 
 .profile-tag-admin {
     background-color: #f8d7da;
-    /* Light Red */
     color: #721c24;
-    /* Dark Red */
 }
 
 .profile-tag-operador {
     background-color: #cce5ff;
-    /* Light Blue */
     color: #004085;
-    /* Dark Blue */
 }
 
 .profile-tag-visualizador {
     background-color: #d1ecf1;
-    /* Light Cyan */
     color: #0c5460;
-    /* Dark Cyan */
 }
 
-/* Estilos para os Botões de Ações */
 .action-buttons i {
     font-size: 18px;
     margin-right: 15px;
@@ -151,26 +121,20 @@
     color: #333;
 }
 
-/* Ajuste do rodapé do card */
 .table-card .card-footer {
     background-color: #fff;
     border-top: 1px solid #e9ecef;
 }
 
-/* Adicionando um pequeno preenchimento na div principal para a tela não grudar na lateral */
 .usuarios-container {
     padding: 20px;
 }
 
-/* --- Estilos da Modal Novo Usuário --- */
-
 .new-user-modal-content {
     border-radius: 12px;
     padding: 10px;
-    /* Espaçamento interno */
 }
 
-/* Estilo para os campos de input (para replicar o cinza claro da imagem) */
 .new-user-modal-content .form-control,
 .new-user-modal-content .form-select {
     background-color: #f7f7f7;
@@ -186,7 +150,6 @@
     margin-bottom: 5px;
 }
 
-/* Estilo do botão Criar Usuário */
 .btn-create-user {
     background-color: #000;
     border-color: #000;
@@ -196,13 +159,11 @@
     border-radius: 8px;
 }
 
-/* Estilo do botão Cancelar */
 .btn-cancel {
     border-radius: 8px;
     padding: 10px 20px;
 }
 
-/* Ocultar a seta de incremento/decremento em inputs number (se necessário) */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;

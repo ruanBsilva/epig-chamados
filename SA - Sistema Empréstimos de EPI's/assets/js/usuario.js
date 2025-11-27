@@ -160,3 +160,14 @@ function deletarUsuario(idUsuario) {
         });
     }
 }
+
+function prepararNovoUsuario() {
+    document.getElementById('form-usuario').reset();
+    document.getElementById('txt-id-usuario').value = 'NOVO';
+    document.getElementById('novoUsuarioModalLabel').textContent = 'Novo Usuário';
+    var btnSalvar = document.querySelector('.btn-create-user');
+    if(btnSalvar) {
+        btnSalvar.textContent = 'Salvar';
+    }
+    $('#novoUsuarioModal').modal('show');
+}

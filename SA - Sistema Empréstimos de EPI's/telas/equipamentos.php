@@ -1,7 +1,7 @@
 <div class="equipamentos-container">
     <div class="equipamentos-header d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Gerenciamento de Equipamentos de EPI</h1>
-        <button class="btn btn-primary new-user-btn" type="button" data-bs-toggle="modal" data-bs-target="#novoEquipamentoModal">
+        <button class="btn btn-primary new-user-btn" type="button" onclick="prepararNovoEquipamento()">
             <i class="bi bi-plus-lg me-2"></i> Novo Equipamento EPI 
         </button>
     </div>

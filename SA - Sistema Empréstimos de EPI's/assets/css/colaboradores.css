@@ -1,13 +1,7 @@
-/*
- * Arquivo: assets/css/colaboradores.css
- * Baseado no padrão de usuarios.css
- */
-
 .colaboradores-container {
     padding: 20px;
 }
 
-/* Header e Botão Verde */
 .colaboradores-header .new-user-btn {
     font-size: 14px;
     padding: 8px 15px;
@@ -17,7 +11,6 @@
     color: #ffffff;
 }
 
-/* Cards */
 .card-stats-row .col { padding: 0 10px; }
 .card-stat {
     border: 1px solid #e0e0e0;
@@ -29,17 +22,15 @@
 .card-stat h6 { font-size: 12px; font-weight: 600; color: #6c757d; }
 .card-stat .stat-value { font-size: 32px; font-weight: 700; color: #333; }
 
-/* Bordas coloridas dos cards */
 .total-card { border-left: 5px solid #007bff; }
 .total-card .bi { color: #007bff; }
-.admin-card { border-left: 5px solid #28a745; } /* Verde para Ativos */
+.admin-card { border-left: 5px solid #28a745; } 
 .admin-card .bi { color: #28a745; }
-.operador-card { border-left: 5px solid #dc3545; } /* Vermelho para Sem EPIs */
+.operador-card { border-left: 5px solid #dc3545; } 
 .operador-card .bi { color: #dc3545; }
-.visualizador-card { border-left: 5px solid #6f42c1; } /* Roxo para Com EPIs */
+.visualizador-card { border-left: 5px solid #6f42c1; } 
 .visualizador-card .bi { color: #6f42c1; }
 
-/* Tabela */
 .table-card { border-radius: 12px; overflow: hidden; }
 .user-table thead th {
     background-color: #f8f9fa;
@@ -51,7 +42,6 @@
 .user-table tbody td { vertical-align: middle; font-size: 14px; }
 .table-card .card-footer { background-color: #fff; border-top: 1px solid #e9ecef; }
 
-/* Modal */
 .new-user-modal-content { border-radius: 12px; padding: 10px; }
 .new-user-modal-content .form-control,
 .new-user-modal-content .form-select {
@@ -62,7 +52,6 @@
 }
 .new-user-modal-content .form-label { font-size: 14px; font-weight: 500; color: #343a40; margin-bottom: 5px; }
 
-/* Botões do Modal */
 .btn-create-user {
     background-color: #000;
     border-color: #000;

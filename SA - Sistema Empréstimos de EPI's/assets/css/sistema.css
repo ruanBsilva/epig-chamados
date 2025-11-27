@@ -3,8 +3,6 @@
 
 :root {
     --font-family: 'Poppins', sans-serif;
-
-    /* SUAS CORES EXATAS */
     --logo-color: #ef922a;
     --logo-color-green: #39a04d;
     --danger-color: #ea000b;
@@ -13,7 +11,6 @@
     --icon-color: #3c3c3c;
     --sidebar-bg: #fafafa;
     --text-color: #3c3c3c;
-    /* Usando a mesma cor dos ícones para o texto inativo */
     --border-color: #EFEFEF;
     --sidebar-width: 260px;
 }
@@ -21,7 +18,6 @@
 body {
     font-family: var(--font-family);
     background-color: var(--main-bg, #F8F9FA);
-    /* Cor de fundo da área de conteúdo */
     color: var(--text-color);
     margin: 0;
     font-size: 14px;
@@ -33,7 +29,6 @@ body {
     height: 100vh;
 }
 
-/* ======================= MENU LATERAL (SIDEBAR) ======================= */
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--sidebar-bg);
@@ -66,18 +61,15 @@ body {
 }
 
 .sidebar-logo .logo-text>span {
-    /* Estilo geral para o texto do logo */
     font-size: 20px;
     font-weight: 700;
 }
 
 .sidebar-logo .logo-text .logo-part-1 {
-    /* Cor Laranja para EPIg */
     color: var(--logo-color);
 }
 
 .sidebar-logo .logo-text .logo-part-2 {
-    /* Cor Verde para Seguros */
     color: var(--logo-color-green);
 }
 
@@ -97,20 +89,15 @@ body {
     margin: 0;
 }
 
-/* REGRA UNIFICADA PARA LINKS E BOTÕES DO MENU */
 .sidebar-nav li a.nav-link,
 .sidebar-nav li button.nav-link {
-    /* Layout (Substitui d-flex, align-items-center) */
     display: flex;
     align-items: center;
     width: calc(100% - 30px);
-    /* Ocupa 100% (menos as margens) */
 
-    /* Espaçamento */
     padding: 12px 20px;
     margin: 5px 15px;
 
-    /* Aparência */
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
@@ -118,7 +105,6 @@ body {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     cursor: pointer;
 
-    /* Reset específico para <button> */
     background: transparent;
     border: none;
     text-align: left;
@@ -126,33 +112,25 @@ body {
     font-size: 14px;
 }
 
-/* Ícone do <a> (tag <i>) */
 .sidebar-nav li a.nav-link i {
     margin-right: 15px;
     font-size: 18px;
     color: var(--icon-color);
 }
 
-/* Ícone do <button> (classe .bi::before) */
 .sidebar-nav li button.nav-link::before {
     margin-right: 15px;
-    /* Mesmo espaçamento do <i> */
     font-size: 18px;
     color: var(--icon-color);
     position: relative;
     top: 1px;
-    /* Ajuste fino de alinhamento */
 }
 
-/* Efeito HOVER sutil (para <a> e <button>) */
 .sidebar-nav li:not(.active):hover a.nav-link,
 .sidebar-nav li:not(.active):hover button.nav-link {
     background-color: var(--active-bg);
 }
 
-
-/* ESTADO ATIVO DO MENU (para <a> e <button>) */
-/* (Seu JS precisa adicionar a classe 'active' ao <li> pai) */
 .sidebar-nav li.active a.nav-link,
 .sidebar-nav li.active button.nav-link {
     background-color: var(--active-bg);
@@ -160,7 +138,6 @@ body {
     font-weight: 600;
 }
 
-/* Ícone ATIVO (para <i> e ::before) */
 .sidebar-nav li.active a.nav-link i,
 .sidebar-nav li.active button.nav-link::before {
     color: var(--icon-color);
@@ -204,20 +181,16 @@ body {
 .sidebar-footer .user-role {
     font-size: 12px;
     color: var(--role-text-color);
-    /* TEXTO 'OPERADOR' AZUL ESCURO */
     font-weight: 600;
 }
 
 .sidebar-footer .logout-link {
     text-decoration: none;
     color: var(--danger-color);
-    /* LINK 'SAIR' VERMELHO */
     font-weight: 600;
     font-size: 13px;
     display: flex;
     align-items: center;
-
-    /* --- ADICIONE ESTAS 4 LINHAS --- */
     background: none;
     border: none;
     padding: 0;
@@ -229,7 +202,6 @@ body {
     font-size: 16px;
 }
 
-/* ======================= CONTEÚDO PRINCIPAL ======================= */
 .main-content {
     flex-grow: 1;
     padding: 20px;
