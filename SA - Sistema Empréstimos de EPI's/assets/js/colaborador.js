@@ -68,12 +68,10 @@ function listarColaborador() {
             tabelaColaboradores.innerHTML = '';
             var colaboradores = resposta.dados;
 
-            console.log("Resposta do servidor:", resposta);
-
             colaboradores.forEach(function (colaborador) {
                 var linha = document.createElement('tr');
                 linha.innerHTML = `
-                    <td>${colaborador['idColaborador']}</td>
+                    
                     <td>${colaborador['nome']}</td>
                     <td>${colaborador['cpf']}</td>
                     <td>${colaborador['cargo']}</td>

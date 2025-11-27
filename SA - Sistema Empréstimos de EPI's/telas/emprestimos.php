@@ -15,7 +15,7 @@
                         <h6 class="card-title text-uppercase mb-2">Empréstimos Ativos</h6>
                         <i class="bi bi-box-arrow-right fs-5"></i>
                     </div>
-                    <div class="stat-value">4</div>
+                    <div id="ativos" class="stat-value">4</div>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <h6 class="card-title text-uppercase mb-2">Vencidos</h6>
                         <i class="bi bi-exclamation-triangle-fill fs-5"></i>
                     </div>
-                    <div class="stat-value">1</div>
+                    <div id="vencidos" class="stat-value">1</div>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <h6 class="card-title text-uppercase mb-2">A vencer</h6>
                         <i class="bi bi-clock-history fs-5"></i>
                     </div>
-                    <div class="stat-value">2</div>
+                    <div id="a-vencer" class="stat-value">5</div>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                         <h6 class="card-title text-uppercase mb-2">Total Histórico</h6>
                         <i class="bi bi-archive-fill fs-5"></i>
                     </div>
-                    <div class="stat-value">7</div>
+                    <div id="total" class="stat-value">7</div>
                 </div>
             </div>
         </div>
@@ -64,17 +64,18 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Data Emprestimo</th>
+                            <th scope="col">Previsao de devolucao</th>
+                            <th scope="col">Observações</th>
+                            <th scope="col">Data da Devolução</th>
                             <th scope="col">Colaborador</th>
                             <th scope="col">CPF</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">EPIs Ativos</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Equipamento</th>
                             <th scope="col" style="width: 15%; text-align: center;">Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody-Colaborador">
+                    <tbody id="tbody-emprestimos" name="tbody-emprestimos">
                         </tbody>
                 </table>
             </div>

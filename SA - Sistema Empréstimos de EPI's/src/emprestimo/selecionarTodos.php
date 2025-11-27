@@ -20,7 +20,7 @@
         $sql_counts = 'SELECT COUNT(id_emprestimo) AS total
                             , COALESCE(SUM(CASE WHEN data_devolucao IS NULL THEN 1 ELSE 0 END), 0) AS ativos
                             , COALESCE(SUM(CASE WHEN data_devolucao IS NULL AND data_prev_emprestimo < CURDATE() THEN 1 ELSE 0 END), 0) AS vencidos
-                            , COALESCE(SUM(CASE WHEN data_devolucao IS NULL AND data_prev_emprestimo >= CURDATE() THEN 1 ELSE 0 END), 0) AS a_vencer
+                            , COALESCE(SUM(CASE WHEN data_devolucao IS NULL AND data_prev_emprestimo >= CURDATE() THEN 1 ELSE 0 END), 0) AS vencer
                         FROM emprestimos';
         $counts = $banco->consultar($sql_counts, [], true);
 

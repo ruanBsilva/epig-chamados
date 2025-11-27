@@ -1,6 +1,8 @@
 function inicializarEmprestimos() {
     listColaborador();
     listEquipamento();
+    listarEmprestimos();
+    
 }
 
 function listColaborador() {
@@ -73,4 +75,78 @@ function salvarEmprestimo() {
     });
 }
 
+function listarEmprestimos(){
+    $.ajax({
+        type: 'post',
+        url: 'src/emprestimo/selecionarTodos.php',
+        dataType: 'json',
+        success: function (resposta){
+            var tabelaEmprestimos = document.getElementById('tbody-emprestimos');
+            tabelaEmprestimos.innerHTML = '';
+            var emprestimos = resposta.dados;
 
+            emprestimos.forEach(function(emprestimo){
+                var linha = document.createElement('tr');
+                linha.innerHTML = `
+                    <td>${emprestimo['id_emprestimo']}</td>
+                    <td>${emprestimo['qtd']}</td>
+                    <td>${emprestimo['data_emprestimo']}</td>
+                    <td>${emprestimo['data_prev_emprestimo']}</td>
+                    <td>${emprestimo['obs']}</td>
+                    <td>
+                        ${emprestimo['data_devolucao'] ? emprestimo['data_devolucao'] : 'Não devolvido' }
+                    </td>
+                    <td>${emprestimo['colaborador']}</td>
+                    <td>${emprestimo['cpf']}</td>
+                    <td>${emprestimo['equipamento']}</td>
+                    <td align="center">
+                        <button class="btn" onclick="devolucaoEmprestimo(${emprestimo['id_emprestimo']})">
+                            <i class="bi bi-layer-backward"></i>
+                        </button>
+                    </td>
+                `
+                tabelaEmprestimos.appendChild(linha);
+            });
+
+
+            var count = resposta.counts[0];
+
+            document.getElementById('ativos').textContent = count.ativos;
+            document.getElementById('vencidos').textContent = count.vencidos;
+            document.getElementById('a-vencer').textContent = count.vencer;
+            document.getElementById('total').textContent = count.total;
+
+
+        },
+        error: function(erro){
+            alert('Ocorreu um erro na requisição: ' + erro);
+        }
+    });
+}
+
+function devolucaoEmprestimo(id){
+    var confirmou = confirm('Deseja realmente marcar como devolvido?')
+    if(confirmou){
+        $.ajax({
+            type: 'POST',
+            url: 'src/emprestimo/devolver.php',
+            dataType: 'json',
+            data: {
+                'id' : id
+            },
+            success: function(resposta){
+                confirm()
+                if(resposta.status === 'sucesso'){
+                    alert(resposta.msg);
+                    listarEmprestimos();
+                }else{
+                    alert(resposta.msg);
+                }
+            },
+            error: function(error){
+                alert('Deu erro ' + error)
+            }
+        })
+    }
+
+}
