@@ -7,7 +7,7 @@
     </div>
     <p class="text-muted mb-4">Gerencie os colaboradores da empresa e seus dados</p>
 
-    <div class="row row-cols-1 row-cols-md-4 g-4 mb-5 card-stats-row">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5 card-stats-row">
         <div class="col">
             <div class="card card-stat total-card">
                 <div class="card-body">
@@ -15,19 +15,7 @@
                         <h6 class="card-title text-uppercase mb-2">Total</h6>
                         <i class="bi bi-people-fill fs-5"></i>
                     </div>
-                    <div class="stat-value">4</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col">
-            <div class="card card-stat admin-card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h6 class="card-title text-uppercase mb-2">Ativos</h6>
-                        <i class="bi bi-person-check-fill fs-5"></i>
-                    </div>
-                    <div class="stat-value">1</div>
+                    <div id="total-cards" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -39,7 +27,7 @@
                         <h6 class="card-title text-uppercase mb-2">Sem EPIs</h6>
                         <i class="bi bi-person-x-fill fs-5"></i>
                     </div>
-                    <div class="stat-value">2</div>
+                    <div id="sem-epis" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -51,7 +39,7 @@
                         <h6 class="card-title text-uppercase mb-2">Com EPIs</h6>
                         <i class="bi bi-shield-shaded fs-5"></i>
                     </div>
-                    <div class="stat-value">3</div>
+                    <div id="com-epis" class="stat-value"></div>
                 </div>
             </div>
         </div>

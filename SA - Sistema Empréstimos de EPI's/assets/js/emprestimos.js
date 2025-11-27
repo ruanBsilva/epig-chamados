@@ -83,39 +83,48 @@ function listarEmprestimos(){
         success: function (resposta){
             var tabelaEmprestimos = document.getElementById('tbody-emprestimos');
             tabelaEmprestimos.innerHTML = '';
-            var emprestimos = resposta.dados;
 
-            emprestimos.forEach(function(emprestimo){
-                var linha = document.createElement('tr');
-                linha.innerHTML = `
-                    <td>${emprestimo['id_emprestimo']}</td>
-                    <td>${emprestimo['qtd']}</td>
-                    <td>${emprestimo['data_emprestimo']}</td>
-                    <td>${emprestimo['data_prev_emprestimo']}</td>
-                    <td>${emprestimo['obs']}</td>
-                    <td>
-                        ${emprestimo['data_devolucao'] ? emprestimo['data_devolucao'] : 'Não devolvido' }
-                    </td>
-                    <td>${emprestimo['colaborador']}</td>
-                    <td>${emprestimo['cpf']}</td>
-                    <td>${emprestimo['equipamento']}</td>
-                    <td align="center">
-                        <button class="btn" onclick="devolucaoEmprestimo(${emprestimo['id_emprestimo']})">
-                            <i class="bi bi-layer-backward"></i>
-                        </button>
-                    </td>
-                `
-                tabelaEmprestimos.appendChild(linha);
-            });
+            if (resposta.status === 'sucesso' && resposta.dados.length > 0) {
+                var emprestimos = resposta.dados;
+                emprestimos.forEach(function(emprestimo){
+                    var linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${emprestimo['id_emprestimo']}</td>
+                        <td>${emprestimo['qtd']}</td>
+                        <td>${emprestimo['data_emprestimo']}</td>
+                        <td>${emprestimo['data_prev_emprestimo']}</td>
+                        <td>${emprestimo['obs']}</td>
+                        <td>
+                            ${emprestimo['data_devolucao'] ? emprestimo['data_devolucao'] : 'Não devolvido' }
+                        </td>
+                        <td>${emprestimo['colaborador']}</td>
+                        <td>${emprestimo['cpf']}</td>
+                        <td>${emprestimo['equipamento']}</td>
+                        <td align="center">
+                            <button class="btn" onclick="devolucaoEmprestimo(${emprestimo['id_emprestimo']})">
+                                <i class="bi bi-layer-backward"></i>
+                            </button>
+                        </td>
+                    `
+                    tabelaEmprestimos.appendChild(linha);
+                });
 
 
-            var count = resposta.counts[0];
+                var count = resposta.counts[0];
 
-            document.getElementById('ativos').textContent = count.ativos;
-            document.getElementById('vencidos').textContent = count.vencidos;
-            document.getElementById('a-vencer').textContent = count.vencer;
-            document.getElementById('total').textContent = count.total;
-
+                document.getElementById('qtd_emprestimos').textContent = emprestimos.length;
+                document.getElementById('ativos').textContent = count.ativos;
+                document.getElementById('vencidos').textContent = count.vencidos;
+                document.getElementById('a-vencer').textContent = count.vencer;
+                document.getElementById('total').textContent = count.total;
+            } else {
+                tabelaEmprestimos.innerHTML = '<tr><td colspan="10" class="text-center p-4 text-muted">Nenhum empréstimo encontrado.</td></tr>';
+                document.getElementById('qtd_emprestimos').textContent = '0 Empréstimo(s) encontrado(s)';
+                document.getElementById('ativos').textContent = '0';
+                document.getElementById('vencidos').textContent = '0';
+                document.getElementById('a-vencer').textContent = '0';
+                document.getElementById('total').textContent = '0';
+            };
 
         },
         error: function(erro){

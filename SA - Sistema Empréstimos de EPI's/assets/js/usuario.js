@@ -49,7 +49,7 @@ function listarUsuarios() {
             var tabelaUsuarios = document.getElementById('tbody-usuario');
             tabelaUsuarios.innerHTML = ''; // limpar a tabela antes de inserir algo
 
-            if (resposta.status === 'sucesso' && Array.isArray(resposta.dados)) {
+            if (resposta.status === 'sucesso' && resposta.dados.length > 0) {
                 var usuarios = resposta.dados;
                 var count = resposta.counts[0];
 

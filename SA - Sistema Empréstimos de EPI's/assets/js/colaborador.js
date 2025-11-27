@@ -66,31 +66,46 @@ function listarColaborador() {
         success: function (resposta) {
             var tabelaColaboradores = document.getElementById('tbody-Colaborador');
             tabelaColaboradores.innerHTML = '';
-            var colaboradores = resposta.dados;
 
-            colaboradores.forEach(function (colaborador) {
-                var linha = document.createElement('tr');
-                linha.innerHTML = `
-                    
-                    <td>${colaborador['nome']}</td>
-                    <td>${colaborador['cpf']}</td>
-                    <td>${colaborador['cargo']}</td>
-                    <td>${colaborador['email']}</td>
-                    <td>${colaborador['telefone']}</td>
-                    <td>${colaborador['nascimento']}</td>
-                    <td>${colaborador['cargo']}</td>
-                    <td align="center">
-                        <button class="btn" onclick="editarColaborador(${colaborador['idColaborador']})">
-                            <i class="bi bi-pencil-fill"></i>
-                        </button>
-                        <button class="btn" onclick="deletarColaborador(${colaborador['idColaborador']})">
-                            <i class="text-danger bi bi-trash3-fill">
-                        </i></button>
-                    </td>
-                `;
+            if (resposta.status === 'sucesso' && resposta.dados.length > 0) {
+                var colaboradores = resposta.dados;
+                var count = resposta.counts[0];
 
-                tabelaColaboradores.appendChild(linha);
-            });
+                colaboradores.forEach(function (colaborador) {
+                    var linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${colaborador['idColaborador']}</td>
+                        <td>${colaborador['nome']}</td>
+                        <td>${colaborador['cpf']}</td>
+                        <td>${colaborador['cargo']}</td>
+                        <td>${colaborador['email']}</td>
+                        <td>${colaborador['telefone']}</td>
+                        <td>${colaborador['nascimento']}</td>
+                        <td>${colaborador['cargo']}</td>
+                        <td align="center">
+                            <button class="btn" onclick="editarColaborador(${colaborador['idColaborador']})">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                            <button class="btn" onclick="deletarColaborador(${colaborador['idColaborador']})">
+                                <i class="text-danger bi bi-trash3-fill">
+                            </i></button>
+                        </td>
+                    `;
+
+                    tabelaColaboradores.appendChild(linha);
+                });
+                document.getElementById('qtd_colaboradores').textContent = colaboradores.length + ' colaborador(s) encontrado(s)';
+                document.getElementById('total-cards').textContent = count.total;
+                document.getElementById('sem-epis').textContent = count.sem_epi;
+                document.getElementById('com-epis').textContent = count.com_epi;
+            } else {
+                tabelaColaboradores.innerHTML = '<tr><td colspan="9" class="text-center p-4 text-muted">Nenhum colaborador encontrado.</td></tr>';
+                document.getElementById('qtd_colaboradores').textContent = '0 colaborador(s) encontrado(s)';
+                document.getElementById('total-cards').textContent = '0';
+                document.getElementById('sem-epis').textContent = '0';
+                document.getElementById('com-epis').textContent = '0';
+            }
+            
         },
         error: function (erro) {
             alert('Ocorreu um erro na requisição: ' + erro);

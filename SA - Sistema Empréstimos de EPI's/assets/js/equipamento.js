@@ -92,7 +92,7 @@ function listarEquipamentos() {
         success: function (resposta) {
             var tabelaEquipamentos = document.getElementById('tbody-equipamentos');
             tabelaEquipamentos.innerHTML = ''; // limpar a tabela antes de inserir algo
-            if (resposta.status === 'sucesso' && Array.isArray(resposta.dados)) {
+            if (resposta.status === 'sucesso' && resposta.dados.length > 0) {
                 var equipamentos = resposta.dados;
                 var count = resposta.counts[0];
 

@@ -15,7 +15,7 @@
                         <h6 class="card-title text-uppercase mb-2">Empréstimos Ativos</h6>
                         <i class="bi bi-box-arrow-right fs-5"></i>
                     </div>
-                    <div id="ativos" class="stat-value">4</div>
+                    <div id="ativos" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <h6 class="card-title text-uppercase mb-2">Vencidos</h6>
                         <i class="bi bi-exclamation-triangle-fill fs-5"></i>
                     </div>
-                    <div id="vencidos" class="stat-value">1</div>
+                    <div id="vencidos" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                         <h6 class="card-title text-uppercase mb-2">A vencer</h6>
                         <i class="bi bi-clock-history fs-5"></i>
                     </div>
-                    <div id="a-vencer" class="stat-value">5</div>
+                    <div id="a-vencer" class="stat-value"></div>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                         <h6 class="card-title text-uppercase mb-2">Total Histórico</h6>
                         <i class="bi bi-archive-fill fs-5"></i>
                     </div>
-                    <div id="total" class="stat-value">7</div>
+                    <div id="total" class="stat-value"></div>
                 </div>
             </div>
         </div>
