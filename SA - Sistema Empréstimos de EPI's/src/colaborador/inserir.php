@@ -1,5 +1,5 @@
 <?php
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
 
     $form = [
         'id'            => $_POST['id']             ?? null,

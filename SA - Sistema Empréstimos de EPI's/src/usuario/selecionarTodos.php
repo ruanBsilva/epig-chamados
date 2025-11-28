@@ -1,5 +1,5 @@
 <?php   
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
     try {
         $banco = new BancoDeDados;
         $sql_usuarios = 'SELECT * FROM usuarios';

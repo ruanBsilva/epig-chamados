@@ -1,5 +1,5 @@
 <?php
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
     // Validação
     $usuario        = isset($_POST['usuario'])    ? $_POST['usuario']     : null;
     $senha          = isset($_POST['senha'])      ? $_POST['senha']       : null;

@@ -1,5 +1,5 @@
 <?php
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
 
     $form['id-emprestimo'] = $_POST['txt-id-emprestimo'] ?? null;
     $form['colaborador'] = $_POST['list-colaborador'] ?? null;

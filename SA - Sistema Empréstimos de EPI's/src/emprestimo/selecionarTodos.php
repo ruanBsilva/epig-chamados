@@ -1,5 +1,5 @@
 <?php   
-    require_once '../classBanco/BancoDeDados.php';
+    require_once '../class/BancoDeDados.php';
 
     try {
         $banco = new BancoDeDados();

@@ -1,7 +1,7 @@
 <?php
     $TOKEN_COD_BARRA = '22702|MGTYrO4axANaRBukOIxahqbWZAXCGwuS';
     
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
     // Validação de dados
     $form = [
     'id'          => $_POST['id']        ?? null,

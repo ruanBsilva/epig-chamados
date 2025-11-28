@@ -1,5 +1,5 @@
 <?php
-    require '../classBanco/BancoDeDados.php';
+    require '../class/BancoDeDados.php';
 
     $id        = $_POST['id'] ?? null;
     $nome      = $_POST['nome'] ?? null;
