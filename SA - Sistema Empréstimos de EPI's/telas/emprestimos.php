@@ -65,8 +65,8 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Quantidade</th>
-                            <th scope="col">Data Emprestimo</th>
-                            <th scope="col">Previsao de devolucao</th>
+                            <th scope="col">Data do Empréstimo</th>
+                            <th scope="col">Previsão de devolução</th>
                             <th scope="col">Observações</th>
                             <th scope="col">Data da Devolução</th>
                             <th scope="col">Colaborador</th>

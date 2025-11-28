@@ -81,7 +81,6 @@ function listarColaborador() {
                         <td>${colaborador['email']}</td>
                         <td>${colaborador['telefone']}</td>
                         <td>${colaborador['nascimento']}</td>
-                        <td>${colaborador['cargo']}</td>
                         <td align="center">
                             <button class="btn" onclick="editarColaborador(${colaborador['idColaborador']})">
                                 <i class="bi bi-pencil-fill"></i>
@@ -99,7 +98,7 @@ function listarColaborador() {
                 document.getElementById('sem-epis').textContent = count.sem_epi;
                 document.getElementById('com-epis').textContent = count.com_epi;
             } else {
-                tabelaColaboradores.innerHTML = '<tr><td colspan="9" class="text-center p-4 text-muted">Nenhum colaborador encontrado.</td></tr>';
+                tabelaColaboradores.innerHTML = '<tr><td colspan="8" class="text-center p-4 text-muted">Nenhum colaborador encontrado.</td></tr>';
                 document.getElementById('qtd_colaboradores').textContent = '0 colaborador(s) encontrado(s)';
                 document.getElementById('total-cards').textContent = '0';
                 document.getElementById('sem-epis').textContent = '0';

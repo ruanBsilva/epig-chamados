@@ -57,8 +57,7 @@
                             <th scope="col">Cargo</th>
                             <th scope="col">Email</th>
                             <th scope="col">Telefone</th>
-                            <th scope="col">EPIs Ativos</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Nascimento</th>
                             <th scope="col" style="width: 15%; text-align: center;">Ações</th>
                         </tr>
                     </thead>
