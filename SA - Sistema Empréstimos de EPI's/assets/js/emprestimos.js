@@ -50,10 +50,7 @@ function listEquipamento() {
 }
 
 function salvarEmprestimo() {
-
     var formulario = new FormData(document.getElementById('form-emprestimos'));
-
-    console.log(formulario);
     $.ajax({
         type: 'post',
         url: 'src/emprestimo/inserir.php',
@@ -62,8 +59,6 @@ function salvarEmprestimo() {
         contentType: false,
         data: formulario,
         success: function(resposta){
-            alert(resposta['msg']);
-
             if(resposta['status'] === 'sucesso'){
                 document.getElementById('form-emprestimos').reset();
                 listarEmprestimos();
@@ -112,7 +107,7 @@ function listarEmprestimos(){
 
                 var count = resposta.counts[0];
 
-                document.getElementById('qtd_emprestimos').textContent = emprestimos.length;
+                document.getElementById('qtd_emprestimos').textContent = emprestimos.length + ' empréstimo(s) encontrado(s)';
                 document.getElementById('ativos').textContent = count.ativos;
                 document.getElementById('vencidos').textContent = count.vencidos;
                 document.getElementById('a-vencer').textContent = count.vencer;
