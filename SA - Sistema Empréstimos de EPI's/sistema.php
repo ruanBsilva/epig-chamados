@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['logado'])) {
+        header('location: index.php');
+    };
     $telas = isset($_GET['telas']) ? $_GET['telas'] : 'dashboard';
 ?>
 <!DOCTYPE html>

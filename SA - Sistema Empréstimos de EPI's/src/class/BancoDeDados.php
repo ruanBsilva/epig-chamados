@@ -5,7 +5,7 @@
         private $dbPorta = '3307';
         private $dbName = 'db_epis';
         private $dbUser = 'root';
-        private $dbPassword = 'Masterkey';
+        private $dbPassword = 'masterkey';
 
         // Construtor
         public function __construct() {
