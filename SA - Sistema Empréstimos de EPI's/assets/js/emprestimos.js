@@ -60,8 +60,11 @@ function salvarEmprestimo() {
         data: formulario,
         success: function(resposta){
             if(resposta['status'] === 'sucesso'){
+                alert(resposta['msg']);
                 document.getElementById('form-emprestimos').reset();
                 listarEmprestimos();
+            }else{
+                alert(resposta['msg']);
             }
         },
         error: function(erro){
@@ -139,7 +142,6 @@ function devolucaoEmprestimo(id){
                 'id' : id
             },
             success: function(resposta){
-                confirm()
                 if(resposta.status === 'sucesso'){
                     alert(resposta.msg);
                     listarEmprestimos();
